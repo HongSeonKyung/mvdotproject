@@ -8,6 +8,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	
 </head>
 <body>
  <jsp:include page="joinpage/header.jsp"></jsp:include>
@@ -20,82 +21,71 @@
 		     <li>비밀번호확인 : <%=request.getParameter("pwdcheck")%></li>
 		    <li>이름 : <%=request.getParameter("name")%></li>
 		    <li>닉네임 : <%=request.getParameter("subname")%></li>
-		    <li>페이스북주소 : <%=request.getParameter("facebookaddress")%></li>
-		    <li>E-mail : <%=request.getParameter("email")%></li>
-	
-		   
-		    <li>메모 : <%=request.getParameter("memo")%></li>
+		    <li>페이스북 주소 : <%=request.getParameter("facebookaddress")%></li>
+		    <li>페이스북 아이디 : <%=request.getParameter("facebookid")%></li>
 	    </ul>
 		 </div>
   <%} else { %>
     <div>
-		  <h1>회원가입</h1>
-		  <form class="form-horizontal" method="post">
-			<fieldset>
-				
-				<div class="control-group">
-					<label class="control-label" for="id">아이디</label>
-					<div class="controls">
-						<input type="text" placeholder="nanhee" name="id">
-					</div>
-				</div>
-				
-				<div class="control-group">
-					<label class="control-label" for="pwd">비밀번호</label>
-					<div class="controls">
-						<input type="password" name="pwd">
-					</div>
-				</div>
-				
-				<div class="control-group">
-					<label class="control-label" for="pwdcheck">비밀번호확인</label>
-					<div class="controls">
-						<input type="password" name="pwdcheck">
-					</div>
-				</div>
-				
-				<div class="control-group">
-					<label class="control-label" for="name">이름</label>
-					<div class="controls">
-						<input type="text" placeholder="홍길동" name="name">
-					</div>
-				</div>
-				
-				<div class="control-group">
-					<label class="control-label" for="subname">닉네임</label>
-					<div class="controls">
-						<input type="text" placeholder="길동이" name="subname">
-					</div>
-				</div>
+		 <h3>회원 가입</h3>
+<fieldset>
+     <form class="form-horizontal" method="post">
 
-				<div class="control-group">
-					<label class="control-label" for="facebookaddress">페이스북주소</label>
-					<div class="controls">
-						<input type="email" placeholder="www.facebook.com/abc123"name="facebookaddress">
-					</div>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label" for="email">E-mail</label>
-					<div class="controls">
-						<input type="email" placeholder="hong@abc.com" name="email">
-					</div>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Memo</label>
-					<div class="controls">
-						<div class="textarea">
-							<textarea name="memo"></textarea>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-actions">
-					<input type="submit" value="제출" class="btn btn-primary">
-				</div>
-			</fieldset>
-		  </form>
+    <table cellspacing="1" class="rowTable" border="0">
+    <tr>
+        <th colspan="2" class="title"><div>기본 정보</div></th>
+    </tr>
+    <tr>
+        <th><div>아이디 </div></th>
+       <td>
+       
+       <input type="text" name="id" value="" class="inputTypeText"/> <p style="font-size:9pt; color:red;">*ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p> </td>
+    </tr>
+    
+    <tr>
+        <th><div>비밀번호 </div></th>
+        <td class="require"><input type="password" name="pwd" value="" class="inputTypeText"/><p style="font-size:9pt; color:red;">*비밀번호는 6~20자로 되어야 합니다.</p></td>
+    </tr>
+    
+    <tr>
+        <th><div>비밀번호 확인 </div></th>
+        <td><input type="password" name="pwdcheck" value="" class="inputTypeText"/></td>
+    </tr>
+    <tr>
+        <th><div>이름 </div></th>
+        <td>
+            <input type="text" name="name" value="" class="inputTypeText"/>
+        </td>
+    </tr>
+    <tr>
+        <th><div>닉네임</div></th>
+        <td>
+            <input type="text" name="subname" value="" class="inputTypeText"/><p style="font-size:9pt; color:red;">닉네임은 2~20자 이내여야 합니다.</p>
+        </td>
+    </tr>
+    <tr>
+        <th><div>페이스북 주소 </div></th>
+        <td class="require">
+            <input type="text" name="facebookaddress" value="" class="inputTypeText"/><p style="font-size:9pt; color:red;">홈페이지가 있을 경우 입력해주세요.</p>
+        </td>
+    </tr>
+    <tr>
+        <th><div>페이스북아이디</div></th>
+        <td class="require">
+            <input type="text" name="facebookid" value="" class="inputTypeText"/><p style="font-size:9pt; color:red;">페이스북주소는 비밀번호 변경이나 찾기 등에 사용됩니다.</p>
+        </td>
+    </tr>
+    
+   
+        <tr>
+        <th class="button" colspan="2">
+            <span class="button black strong"><input type="submit" value="가입하기" ></span>
+            <a href="" class="button"><span>취소</span></a>
+        </th>
+    </tr>
+    </table>
+</form>
+</fieldset>
     </div>
 	<% } %>
   </div>
