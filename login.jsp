@@ -14,7 +14,7 @@
 		  	 <b>비밀번호</b><br>	 
 		   	 <input type="password" name="pwd"><br><br>	
 		   	 <span style="float:right"><input type="submit" value="로그인"></span><br><br>
-		   	 	  회원가입 | 아이디/비밀번호찾기  
+		   	 	 <a href="./join.jsp"> 회원가입</a> | 아이디/비밀번호찾기  
    	    </form>  
  <%  if (request.getMethod() == "POST") {
 		 String id = request.getParameter("id");	
@@ -25,7 +25,7 @@
   <%	 } else if (id.equals("nanhee") && pwd.equals("12345")) {		  
  		// 로그인 성공	      session.setAttribute("userId", "nanhee");	     
  			 session.setAttribute("userName", "조난희");		    
- 			 response.sendRedirect("ex2.jsp");	   
+ 			// response.sendRedirect("ex2.jsp");	   
  		 } else {		  
  	 %>	 <div class="error">
  	 	<span style= "color:red";> 로그인할 수 없습니다. 입력내용을 확인 후 다시 시도해 주십시오. </span>
