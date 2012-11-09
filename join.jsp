@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,13 +6,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>회원가입 페이지</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	 <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	
 </head>
 <body>
- <jsp:include page="joinpage/header.jsp"></jsp:include>
+ <jsp:include page="header.jsp"></jsp:include>
   <div class="container">
 	<%	if (request.getMethod() == "POST") { %>
 		 <div class="well">
@@ -31,7 +32,7 @@
 <fieldset>
      <form class="form-horizontal" method="post">
 
-    <table cellspacing="1" class="rowTable" border="0">
+    <table cellspacing="5" class="rowTable">
     <tr>
         <th colspan="2" class="title"><div>기본 정보</div></th>
     </tr>
@@ -80,7 +81,7 @@
         <tr>
         <th class="button" colspan="2">
             <span class="button black strong"><input type="submit" value="가입하기" ></span>
-            <a href="" class="button"><span>취소</span></a>
+            <a href="test.html" class="button"><span>취소</span></a>
         </th>
     </tr>
     </table>
@@ -89,7 +90,8 @@
     </div>
 	<% } %>
   </div>
-<jsp:include page="joinpage/footer.jsp"></jsp:include> 
+  <hr><br>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
 
