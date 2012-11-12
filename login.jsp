@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
-<body>
+<body onresize="parent.resizeTo(500,400)" onload="parent.resizeTo(500,400)">
 <form action="logincheck.jsp" method="post">
 	 <b>아이디</b><br>
 	   <input type="text" name="id"><br>

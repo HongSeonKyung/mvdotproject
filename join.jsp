@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<title>회원가입 페이지</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	 <script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	function checkPwd(){
