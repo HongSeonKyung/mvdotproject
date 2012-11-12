@@ -13,9 +13,9 @@
 <body onresize="parent.resizeTo(500,400)" onload="parent.resizeTo(500,400)">
 <form action="logincheck.jsp" method="post">
 	 <b>아이디</b><br>
-	   <input type="text" name="id"><br>
+	   <input type="text" name="id" placeholder="id"><br>
 	 <b>비밀번호</b><br>
-	  <input type="password" name="pwd"><br><br>
+	  <input type="password" name="pwd" placeholder="password"><br><br>
 	  <span style="float:right"><input type="submit" value="로그인"></span><br><br>
 	  <a href="join.jsp">회원가입</a> | 아이디/비밀번호찾기
   </form> 

@@ -38,7 +38,7 @@
     		</tr>
 		    <tr>
 					<th><label class="control-label" for="name">아이디</label></th>
-					<td><input type="text" id="userid" name="userid" value=""/>
+					<td><input type="text" id="userid" name="userid" value="" />
 							<p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
 					</td>
 				</tr>
