@@ -5,15 +5,15 @@
 <head>
 	<meta charset="UTF-8">
 	<style>
-	#footer{ text-align:center; font-size: 11px;}</style>
+	#footer{background-color:#d5dde2; color:#888; text-align:center; font-size: 11px; padding:20px;}
+	</style>
 </head>
 <body>
-<footer class="footer">
-  <div class="container" style="border-top:1px solid #DDD; padding:10px 0;">
+<div id="footer">
+ 
     회사소개 | copyright | 유해게시물신고 | 문의하기
  
   </div>
-</footer>
 </body>
 </html>
 
