@@ -16,7 +16,7 @@
 		}
 	}
 	function returnPage(){
-		window.location="test.html"
+		window.location="main.html"
 	}
 	
 	</script>
@@ -37,45 +37,45 @@
         	<th colspan="2" class="title"><div><label>기본 정보</label></div></th>
     		</tr>
 		    <tr>
-					<th><label class="control-label" for="name">아이디</label></th>
+					<th><label for="name">아이디</label></th>
 					<td><input type="text" id="userid" name="userid" value="" />
 							<p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
 					</td>
 				</tr>
 				<tr>
-					<th><label class="control-label" for="name">비밀번호</label></th>
+					<th><label for="name">비밀번호</label></th>
 					<td><input type="password" id="pwd" name="pwd" value=""/>
 							<p style="font-size:9pt; color:red;">비밀번호는 6~20자로 되어야 합니다.</p>
 					</td>
 				</tr>		
 				<tr>
-					<th><label class="control-label" for="name">비밀번호확인</label></th>
+					<th><label for="name">비밀번호확인</label></th>
 					<td><input type="password" id="pwdchk" name="pwdchk" onblur="javascript:checkPwd();" value=""/>
 							<p style="font-size:9pt; color:red;">비밀번호를 동일하게 입력하세요.</p>
 					</td>
 				</tr>			
  				<tr>
-					<th><label class="control-label" for="name">이름</label></th>
+					<th><label for="name">이름</label></th>
 					<td>
 						<input type="text" id="name" name="name" value="" />
 					</td>
 				</tr>
  				<tr>
-					<th><label class="control-label" for="name">닉네임</label></th>
+					<th><label for="name">닉네임</label></th>
 					<td>
 						<input type="text" name="nickname" value=""/>
 						<p style="font-size:9pt; color:red;">*닉네임은 2~20자 이내여야 합니다.</p>
 					</td>
 				</tr>
  				<tr>
-					<th><label class="control-label" for="name">페이스북 아이디</label></th>
+					<th><label for="name">페이스북 아이디</label></th>
 					<td>
 						<input type="text" name="facebook_id" value=""/>
 						<p style="font-size:9pt; color:red;">페이스북주소는 비밀번호 변경이나 찾기 등에 사용됩니다.</p>
 					</td>
 				</tr>
  				<tr>
-					<th><label class="control-label" for="name">페이스북 주소</label></th>
+					<th><label for="name">페이스북 주소</label></th>
 					<td>
 						<input type="text" name="facebook_address" value=""/>
 						<p style="font-size:9pt; color:red;">홈페이지가 있을 경우 입력해주세요.</p>
