@@ -17,9 +17,9 @@
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String dbUrl = "jdbc:mysql://localhost:3306/test1";
-		String dbUser = "hong1";
-		String dbPassword = "mvhong";
+		String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
+		String dbUser = "mvtest";
+		String dbPassword = "mv541830";
 
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
