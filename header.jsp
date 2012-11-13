@@ -33,7 +33,7 @@
 			<div id = "top_right">
 				<a href="login.jsp"> 로그인 </a>
 				<a href="join.jsp"> 회원가입 </a>
-				<a href=""> my page </a>
+				<a href="mypage.jsp"> my page </a>
 			</div>
 		</div>
 		
