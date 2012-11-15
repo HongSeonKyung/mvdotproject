@@ -6,14 +6,15 @@
 <%@page import="java.sql.PreparedStatement"%>	
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
+ <%
+	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
-	String dbUrl = "jdbc:mysql://localhost:3306/test1";
-	String dbUser = "hong1";
-	String dbPassword = "mvhong";
+	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
+	String dbUser = "mvtest";
+	String dbPassword = "mv541830";
 	
 	request.setCharacterEncoding("utf-8");
 	String userid = request.getParameter("userid");
@@ -97,17 +98,18 @@
  			<%} %>
  	</ul>
  	</div>
- 	<div class="form-action">
+ 	<div>
  		<a onclick="history.back();" class="btn">뒤로 돌아가기</a>
  	</div>
  	<%} else if(result == 1){%>
- 	<div class="alert alert-success">
+ 	<div>
  		<b><%=nickname%></b> 님 등록해주셔서 감사합니다.
  	</div>
- 	 	<div class="form-action">
- 		<a href="test.html">목록으로</a>
+ 	 	<div>
+ 		<a href="main.html">목록으로</a>
  	</div>
  	<%} %>
  </div>
+	<jsp:include page="footer.jsp"></jsp:include> 
 </body>
 </html>

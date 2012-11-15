@@ -84,7 +84,7 @@
  				<tr>        
  					<th class="button" colspan="2">
           	<input type="submit" value="가입" >
- 						<input type="button" value="취소" onclick="javascript:returnPage()">
+ 						<input type="button" value="취소" onclick="history.back()">
  				</th>
  				</tr>
  				</tbody>
