@@ -16,10 +16,26 @@
  <jsp:include page="header.jsp">
  	<jsp:param name="current" value="Login"/>
  </jsp:include>
- 
- 	
- 
+ <div id="findmenuBar">
+			<ul>
+			<li><a href="idfind.jsp" class="selected">아이디 찾기</a></li>
+			 <li><a href="pwdfind.jsp">비밀번호 찾기</a></li>
+			</ul>	
+</div>
 
+<form action="pwdfinder.jsp" method="post">
+	<div >
+		
+			<h1><b>비밀번호  찾기</b></h1><br>
+			가입하셨던 아이디과 메일주소를 아래에 입력해 주세요.
+			<hr>
+			아이디 : <input type="text" name="id">
+			페이스북아이디 : <input type="text" name="facebook_id">
+			<input type="submit" value="찾기">
+		
+	</div>
+</form>
+ 	
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

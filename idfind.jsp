@@ -20,14 +20,13 @@
 		width: 120px;
 		margin-right:1px;
 		text-decoration:none;
-}
+	}
 	</style>
 </head>
 <body>
  <jsp:include page="header.jsp">
  	<jsp:param name="current" value="Login"/>
  </jsp:include>
- 
  
  <div id="findmenuBar">
 			<ul>
@@ -36,18 +35,19 @@
 			</ul>	
 </div>
 
-<div id="findline">
-	<div id="idfind">
-		<table border="1">
-			<h1><b>이름&닉네임으로 찾기</b></h1><br>
+<form action="idfinder.jsp" method="post">
+	<div >
+		
+			<h1><b>아이디  찾기</b></h1><br>
 			가입하셨던 이름과 닉네임을 아래에 입력해 주세요.
 			<hr>
 			이름 : <input type="text" name="name">
-			닉네임 : <input type="text" name="nikname">
-		</table>
+			닉네임 : <input type="text" name="nickname">
+			<input type="submit" value="찾기">
+		
 	</div>
-</div>
-<br>
+</form>
+ 	
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
