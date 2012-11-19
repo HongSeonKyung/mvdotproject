@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>login</title>
 </head>
 <body onresize="parent.resizeTo(500,400)" onload="parent.resizeTo(500,400)">
 <form action="logincheck.jsp" method="post">

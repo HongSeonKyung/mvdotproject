@@ -19,6 +19,17 @@
 		window.location="main.html"
 	}
 	
+	function idchk(i){
+		id=frm.userid.value;
+		if(id==""){
+		window.alert("아이디를 입력해 주세요");
+		frm.userid.focus();
+		return;
+		}
+		w=window.open("idcheck.jsp?id=" +id,"",
+			"width=300,height=150");
+	}
+
 	</script>
 	
 </head>
@@ -39,7 +50,8 @@
 		    <tr>
 					<th><label for="name">아이디</label></th>
 					<td><input type="text" id="userid" name="userid" value="" />
-							<p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
+						<input type="button" value="중복확인" onClick="idchk(this.form)"/>	<p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
+						
 					</td>
 				</tr>
 				<tr>
