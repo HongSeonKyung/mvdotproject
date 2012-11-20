@@ -27,6 +27,7 @@
 				stmt.setString(3, content);
 				
 				result = stmt.executeUpdate();
+			}
 %>
 <!DOCTYPE html>
 <html>
@@ -41,30 +42,8 @@
 	<jsp:include page="header.jsp">
 		<jsp:param name="current" value="write" />
 	</jsp:include>
-	<table border="1">
-		<tbody>
-			<tr>
-				<td>추천수</td>
-				<td>공감해요</td>
-				<td>제목</td>
-				<td>조회수</td>
-				<td>날짜</td>
-			</tr>
+<jsp:include page="allreview.jsp"></jsp:include>
 <%
-				if (result != 0) {
-					stmt = conn.prepareStatement("SELECT subject, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD");
-					rs = stmt.executeQuery();
-					while (rs.next()) {
-						out.print("<tr>");
-						out.print("<td>" + 0 + "</td>");
-						out.print("<td>" + 0 + "</td>");
-						out.print("<td>" + rs.getString("subject") + "</td>");
-						out.print("<td>" + 0 + "</td>");
-						out.print("<td>" + rs.getString("time") + "</td>");
-						out.print("</tr>");
-					}
-				}
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -85,11 +64,6 @@
 				}
 		}
 	%>
-		</tbody>
-	</table>
-	<div>
-		<a href="main.html">목록으로</a>
-	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
