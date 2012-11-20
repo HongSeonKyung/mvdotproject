@@ -41,7 +41,7 @@
 			<div id="navbar">
 			<ul>
 				<li><a href="main.html">Home</a></li>
-				<li><a href="allreview.html">모든리뷰</a></li>
+				<li><a href="allreview.jsp">모든리뷰</a></li>
 				<li><a href="nowreview.html" >현재상영작리뷰</a></li>	
 			</ul>
 			</div>
