@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>모든 리뷰</title>
-	<link href="temp.css" type="text/css" rel="stylesheet"/>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<link href="temp.css" type="text/css" rel="stylesheet"/>
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +13,8 @@
 		<jsp:include page="top.jsp">
  		<jsp:param name="current" value="top"/>
  		</jsp:include>
- 		
+ 
+ 
 		<div id="header" >
 			<form class="navbar-form pull-left">
 				<input type="text" class="span2">
@@ -26,19 +27,10 @@
  			</jsp:include>
 		</div>
 		<div id="main">
-		<form action="write.html" method=post>
-			<div>
-				<input type="submit" name="board_write" value="글작성">
-			</div>
-		</form>	
-		<jsp:include page="boardlist.jsp">
-			<jsp:param name="current" value="view" />
-		</jsp:include>
-		</div>
+		</div>	
 	</div>
 		<div id="footer">
-		회사소개 | copyright | 유해게시물신고 | 문의하기
+		 ȸ��Ұ� | copyright | ���ذԽù��Ű� | �����ϱ�
 		</div>
-	<br>
 </body>
 </html>

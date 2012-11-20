@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>ëª¨ë“  ë¦¬ë·°</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
 	<link href="temp.css" type="text/css" rel="stylesheet"/>
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 </head>
@@ -13,11 +13,10 @@
 		<jsp:include page="top.jsp">
  		<jsp:param name="current" value="top"/>
  		</jsp:include>
- 		
 		<div id="header" >
 			<form class="navbar-form pull-left">
 				<input type="text" class="span2">
-				<button type="submit" class="btn">Search</button>
+				<button type="submit" class="btn">Submit</button>
 			</form>
 		</div>
 		<div id="menuBar">
@@ -26,19 +25,10 @@
  			</jsp:include>
 		</div>
 		<div id="main">
-		<form action="write.html" method=post>
-			<div>
-				<input type="submit" name="board_write" value="ê¸€ì‘ì„±">
-			</div>
-		</form>	
-		<jsp:include page="boardlist.jsp">
-			<jsp:param name="current" value="view" />
-		</jsp:include>
 		</div>
 	</div>
-		<div id="footer">
-		íšŒì‚¬ì†Œê°œ | copyright | ìœ í•´ê²Œì‹œë¬¼ì‹ ê³  | ë¬¸ì˜í•˜ê¸°
-		</div>
-	<br>
+	<div id="footer">
+		È¸»ç¼Ò°³ | copyright | À¯ÇØ°Ô½Ã¹°½Å°í | ¹®ÀÇÇÏ±â
+	</div><br>
 </body>
 </html>

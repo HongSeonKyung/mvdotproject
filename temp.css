@@ -1,22 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 #wrap{width:960px;margin: 0 auto;}
-#top_left{text-align: left;}
-#top_right{text-align: right; padding:0;} 
 #header{background-color: #B2EBF4; height: 300px;margin:20px 0;}
 #main{background-color: #B2EBF4; height: 500px;margin:0px 0 10px 0;}
 #footer{background-color:#d5dde2; color:#888; text-align:center; font-size: 11px; padding:20px;}
-#navbar{width:960px;height:30px; background-color:  #6F83D6;} 
-#navbar ul{margin:5; padding:0;}
-#navbar ul li{float:left;}
-#navbar ul li a{
-		color: #000; background-color:#66A1D2;
-		display:block;
-		text-align:center;
-		padding:5px 0px;
-		width: 120px;
-		margin-right:1px;
-		text-decoration:none;
-}
-#navbar ul li a:hover{background-color:#7373D9;}
-#navbar ul li a.selected{background-color:#2C3D82;}
+
