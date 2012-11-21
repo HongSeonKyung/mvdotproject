@@ -66,9 +66,12 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
- <jsp:include page="header.jsp">
- 	<jsp:param name="current" value="Login"/>
- </jsp:include>
+ 			<jsp:include page="top.jsp">
+ 			<jsp:param name="current" value="top"/>
+ 			</jsp:include>
+ 			<jsp:include page="menubar.jsp">
+ 			<jsp:param name="current" value="menubar"/>
+ 			</jsp:include>
  
  <h3> 님 환영합니다.</h3>
  <div class ="form-actions">
