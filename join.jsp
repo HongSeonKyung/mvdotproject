@@ -1,5 +1,69 @@
+<%@page import="java.util.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>	
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+ <%
+	String errorMsg=null;
+ 	String actionUrl;
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	
+	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
+	String dbUser = "mvtest";
+	String dbPassword = "mv541830";
+
+	
+	String name = "";
+	String nickname = "";
+	String facebook_id = "";
+	String facebook_address = "";
+	
+	String id;
+	try {
+		if(session.getAttribute("id") == null) {
+			id = "";
+		} else {
+			id = (String)session.getAttribute("id");
+		}
+	} catch (Exception e) {
+		System.out.println(e);
+		id = "";
+	}if(id!=null){
+		actionUrl="update.jsp";
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+
+	 		// 질의 준비
+			stmt = conn.prepareStatement("SELECT NAME, NICKNAME,FACEBOOK_ID, FACEBOOK_ADDRESS FROM USERS WHERE ID= ?");
+				stmt.setString(1, id);
+			
+			// 수행
+	 		rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				name=rs.getString("name");
+				nickname=rs.getString("nickname");
+				facebook_id=rs.getString("facebook_id");
+				facebook_address=rs.getString("facebook_address");
+				}
+		}catch (SQLException e) {
+			errorMsg = "SQL 에러: " + e.getMessage();
+			System.out.println(errorMsg);
+		} finally {
+			// 무슨 일이 있어도 리소스를 제대로 종료
+			if (rs != null) try{rs.close();} catch(SQLException e) {}
+			if (stmt != null) try{stmt.close();} catch(SQLException e) {}
+			if (conn != null) try{conn.close();} catch(SQLException e) {}
+		}
+	} else {
+		actionUrl = "register.jsp";
+	}
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,17 +83,6 @@
 		window.location="main.html"
 	}
 	
-	function idchk(i){
-		id=frm.userid.value;
-		if(id==""){
-		window.alert("아이디를 입력해 주세요");
-		frm.userid.focus();
-		return;
-		}
-		w=window.open("idcheck.jsp?id=" +id,"",
-			"width=300,height=150");
-	}
-
 	</script>
 	
 </head>
@@ -40,7 +93,7 @@
   <div class="container">
     <div>
 		 <h3>회원 가입</h3>
-     <form name="frm" class="form-horizontal" action="register.jsp" method="post">
+     <form name="frm" class="form-horizontal" action="<%=actionUrl%>" method="post">
 			<fieldset>
 	   	 <table>
 	   	 <tbody>
@@ -49,9 +102,8 @@
     		</tr>
 		    <tr>
 					<th><label for="name">아이디</label></th>
-					<td><input type="text" id="userid" name="userid" value="" />
-						<input type="button" value="중복확인" onClick="idchk(this.form)"/>	<p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
-						
+					<td><input type="text" id="userid" name="userid" value="<%=id %>" />
+							<p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
 					</td>
 				</tr>
 				<tr>
@@ -69,33 +121,37 @@
  				<tr>
 					<th><label for="name">이름</label></th>
 					<td>
-						<input type="text" id="name" name="name" value="" />
+						<input type="text" id="name" name="name" value="<%=name%>" />
 					</td>
 				</tr>
  				<tr>
 					<th><label for="name">닉네임</label></th>
 					<td>
-						<input type="text" name="nickname" value=""/>
+						<input type="text" name="nickname" value="<%=nickname%>"/>
 						<p style="font-size:9pt; color:red;">*닉네임은 2~20자 이내여야 합니다.</p>
 					</td>
 				</tr>
  				<tr>
 					<th><label for="name">페이스북 아이디</label></th>
 					<td>
-						<input type="text" name="facebook_id" value=""/>
+						<input type="text" name="facebook_id" value="<%=facebook_id%>"/>
 						<p style="font-size:9pt; color:red;">페이스북주소는 비밀번호 변경이나 찾기 등에 사용됩니다.</p>
 					</td>
 				</tr>
  				<tr>
 					<th><label for="name">페이스북 주소</label></th>
 					<td>
-						<input type="text" name="facebook_address" value=""/>
+						<input type="text" name="facebook_address" value="<%=facebook_address%>"/>
 						<p style="font-size:9pt; color:red;">홈페이지가 있을 경우 입력해주세요.</p>
 					</td>
 				</tr>				
  				<tr>        
  					<th class="button" colspan="2">
+ 					<%if(id==null){ %>
           	<input type="submit" value="가입" >
+          	<%}else{%>
+          	<input type="submit" value="수정" >
+          	<%} %>
  						<input type="button" value="취소" onclick="history.back()">
  				</th>
  				</tr>

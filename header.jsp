@@ -34,6 +34,7 @@
 				<a href="login.jsp"> 로그인 </a>
 				<a href="join.jsp"> 회원가입 </a>
 				<a href="mypage.jsp"> my page </a>
+				<a href="update.jsp">수정페이지</a>
 			</div>
 		</div>
 		
@@ -41,7 +42,7 @@
 			<div id="navbar">
 			<ul>
 				<li><a href="main.html">Home</a></li>
-				<li><a href="allreview.jsp">모든리뷰</a></li>
+				<li><a href="allreview.html">모든리뷰</a></li>
 				<li><a href="nowreview.html" >현재상영작리뷰</a></li>	
 			</ul>
 			</div>
