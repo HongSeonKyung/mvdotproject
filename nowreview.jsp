@@ -15,8 +15,9 @@
  		</jsp:include>
 		<div id="header" >
 			<form class="navbar-form pull-left">
-				<input type="text" class="span2">
-				<button type="submit" class="btn">Submit</button>
+				<jsp:include page="final.jsp">
+ 		<jsp:param name="current" value="top"/>
+ 		</jsp:include>
 			</form>
 		</div>
 		<div id="menuBar">
