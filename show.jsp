@@ -22,6 +22,9 @@
 						"WHERE review_id=?"); //클릭한 게시글의 아이디로 제목, 내용, 날짜를 가져온다.
 				stmt.setInt(1, Integer.parseInt(review_id));//게시물 아이디를 설정한다.
 				rs = stmt.executeQuery();
+				stmt = conn.prepareStatement("UPDATE review_board SET vote_cnt= vote_cnt + 1 WHERE review_id= ?");
+				stmt.setInt(1, Integer.parseInt(review_id));
+				stmt.executeUpdate();
 			}
 %>
 <!DOCTYPE html>
