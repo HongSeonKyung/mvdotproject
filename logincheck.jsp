@@ -38,7 +38,9 @@
 				<script type="text/javascript">
 			    window.onload = function() {
 			        setTimeout("window.close()",0);
+			        window.opener.document.location.href = "main.jsp";
 			  	 }
+			    
 				</script>
 		
 		<%	} else {%>
