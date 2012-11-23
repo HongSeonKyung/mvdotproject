@@ -20,10 +20,10 @@
 				<img src="images/logo_top.png" alt="website Logo"/>
 			</div>
 			<div id = "top_right">
-				<a href="login.jsp">로그인</a>
-				<a href="join.jsp"> 회원가입 </a>
-				<a href="mypage.jsp"> my page </a>
-				<a href="update.jsp">수정페이지</a>
+				<a href="login.jsp" class="btn btn-info" type="button" onClick="login.jsp"><i class="icon-heart"></i>로그인</a>
+				<a href="join.jsp" class="btn btn-info" type="button"><i class="icon-star"></i>회원가입 </a>
+				<a href="mypage.jsp" class="btn btn-info" type="button"><i class="icon-user"></i> my page </a>
+				<a href="update.jsp" class="btn btn-info" type="button"> 수정페이지 </a>
 			</div>
 		</div>	
 

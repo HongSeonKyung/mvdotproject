@@ -35,7 +35,12 @@
 </script>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="top.jsp">
+ 		<jsp:param name="current" value="top"/>
+ 		</jsp:include>
+ <jsp:include page="menubar.jsp">
+ 			<jsp:param name="current" value="menubar"/>
+ 			</jsp:include>
 	<%
 					while (rs.next()) {
 						out.print("<div>" + rs.getString("subject") + "</div>");

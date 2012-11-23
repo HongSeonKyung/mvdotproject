@@ -123,7 +123,7 @@
  		<b><%=nickname%></b> 님 수정되었습니다.
  	</div>
  	 	<div>
- 		<a href="main.html">목록으로</a>
+ 		<a href="main.jsp">목록으로</a>
  	</div>
  	<%} %>
  </div>

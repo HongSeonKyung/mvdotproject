@@ -85,8 +85,11 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
- <jsp:include page="header.jsp">
- 	<jsp:param name="current" value="Login"/>
+ <jsp:include page="top.jsp">
+ 	<jsp:param name="current" value="top"/>
+ </jsp:include>
+ <jsp:include page="menubar.jsp">
+ 	<jsp:param name="current" value="menubar"/>
  </jsp:include>
  <div class="container">
  <% if(errorMsg.size() > 0){%>
