@@ -21,7 +21,7 @@
 			int result = 0;
 			request.setCharacterEncoding("utf-8");
 			String id = (String) session.getAttribute("id"); //사용자 아이디
-			stmt = conn.prepareStatement("SELECT review_id, subject, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD");
+			stmt = conn.prepareStatement("SELECT review_id, subject, vote_cnt, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD ORDER BY review_id DESC");
 			rs = stmt.executeQuery();
 		}
 %>
@@ -42,8 +42,8 @@
 		<table border="1">
 			<tbody>
 			<tr>
-				<td>추천수</td>
-				<td>공감해요</td>
+				<td>공감수</td>
+				<td>추천별점</td>
 				<td>제목</td>
 				<td>조회수</td>
 				<td>날짜</td>
@@ -55,7 +55,7 @@
 						out.print("<td>" + 0 + "</td>");
 						out.print("<td>" + 0 + "</td>");
 						out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
-						out.print("<td>" + 0 + "</td>");
+						out.print("<td>" + rs.getString("vote_cnt") + "</td>");
 						out.print("<td>" + rs.getString("time") + "</td>");
 						out.print("</tr>");
 						}
