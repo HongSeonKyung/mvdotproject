@@ -21,9 +21,9 @@
 				String id = (String) session.getAttribute("id"); //사용자 아이디
 				String subject = request.getParameter("subject");
 				String content = request.getParameter("content");
-				stmt = conn.prepareStatement("INSERT INTO REVIEW_BOARD(user_id,subject,content,writetime) " + "VALUES(?, ?, ?, NOW())");
+				stmt = conn.prepareStatement("INSERT INTO REVIEW_BOARD(user_id,subject,content,writetime, vote_cnt) " + "VALUES(?, ?, ?, NOW()), 0");
 				stmt.setString(1, id);
-				stmt.setString(2, subject);
+				stmt.setString(2, subject); 
 				stmt.setString(3, content);
 				
 				result = stmt.executeUpdate();
