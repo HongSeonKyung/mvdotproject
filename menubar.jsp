@@ -6,7 +6,6 @@
 <head>
 	<meta charset="UTF-8">
 	<style>
-	#wrap{width:960px;margin: 0 auto;}
 #navbar{width:960px;height:30px; background-color:  #6F83D6;} 
 #navbar ul{margin:5; padding:0;}
 #navbar ul li{float:left;}

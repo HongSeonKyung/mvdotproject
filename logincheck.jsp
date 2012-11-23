@@ -34,11 +34,22 @@
 				dbPwd = rs.getString("PASSWORD");
 			}
 			if (password.equals(dbPwd)) {
-				session.setAttribute("id", id);//세션에 id를 등록한다(로그인)
-				out.print("<b>" + session.getAttribute("id") + "</b> 님 로그인해주셔서 감사합니다.");
-			} else {
-				out.print("<b>" + id + "</b> 님 로그인 실패하셨습니다.");
-			}
+				 session.setAttribute("id", id);//세션에 id를 등록한다(로그인)%>
+				<script type="text/javascript">
+			    window.onload = function() {
+			        setTimeout("window.close()",0);
+			  	 }
+				</script>
+		
+		<%	} else {%>
+				<b>입력한 내용을 찾을 수 없습니다. 다시 입력해 주십시오.<b>
+				<br><br><a span style= "color:red";>이 창은 3초 후 자동으로 종료됩니다. </a>
+						<script type="text/javascript">
+					    window.onload = function() {
+					        setTimeout("window.close()",3000);
+					  	 }
+						</script>
+			<% }
 		}
 	%>
 </body>

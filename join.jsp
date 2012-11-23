@@ -70,6 +70,7 @@
 	<meta charset="UTF-8">
 	<title>회원가입 페이지</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="temp.css" type="text/css" rel="stylesheet"/>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
@@ -80,9 +81,17 @@
 		}
 	}
 	function returnPage(){
-		window.location="main.html"
+		window.location="main.jsp"
 	}
-	
+	 function idchk(i){ 
+		id=frm.userid.value; 
+		if(id==""){ 
+			window.alert("아이디를 입력해 주세요"); 
+			frm.userid.focus(); 
+			return; 
+		} 
+		w=window.open("idcheck.jsp?id=" +id,"", "width=300,height=150"); 
+	 } 
 	</script>
 	
 </head>
@@ -96,7 +105,7 @@
   <div class="container">
     <div>
 		 <h3>회원 가입</h3>
-     <form name="frm" class="form-horizontal" action="<%=actionUrl%>" method="post">
+     <form name="frm" class="form-horizontal" action="register.jsp" method="post">
 			<fieldset>
 	   	 <table>
 	   	 <tbody>
@@ -106,7 +115,7 @@
 		    <tr>
 					<th><label for="name">아이디</label></th>
 					<td><input type="text" id="userid" name="userid" value="<%=id %>" />
-							<p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
+						<input type="button" value="중복확인" onClick="idchk(this.form)"/><p style="font-size:9pt; color:red;">ID는 5~10자 사이의 영문,숫자로 이루어져야 합니다.</p>
 					</td>
 				</tr>
 				<tr>
@@ -150,12 +159,9 @@
 				</tr>				
  				<tr>        
  					<th class="button" colspan="2">
- 					<%if(id==null){ %>
-          	<input type="submit" value="가입" >
-          	<%}else{%>
-          	<input type="submit" value="수정" >
-          	<%} %>
- 						<input type="button" value="취소" onclick="history.back()">
+ 		
+          				<input type="submit" value="가입" > 
+			 			<input type="button" value="취소" onclick="history.back()">
  				</th>
  				</tr>
  				</tbody>

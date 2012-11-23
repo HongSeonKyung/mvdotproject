@@ -9,7 +9,5 @@
 <body>
 
   로그아웃 되었습니다.
-  <p>
-  <a href="test.html">페이지로 돌아가기</a>
 </body>
 </html>
