@@ -1,0 +1,43 @@
+@charset "utf-8";
+#main_content{
+	width: 620px; height: 800px; 
+	background-color: #fff;
+	margin: 5px;
+	padding: 10px;
+	border: 4px double black;
+}
+#subject{
+	width: 580px;
+	margin: 10px;
+	padding: 10px;
+	background-color: #fff;
+}
+#write_style{
+	width : 580px; height: 420px;
+	background-color: #fff;
+	margin:10px;
+	padding:5px;
+}
+#write_style div.image{
+	width: 550px; height: 230px;
+	background-color: #eafc71;
+	margin: 7px;
+	padding: 5px;
+	border: 1px dashed black;
+}
+#write_style div.information{
+	width: 550px; height: 150px;
+	background-color: #eafc71;
+	margin: 7px;
+	padding: 5px;
+	border: 1px dashed black;
+}
+#text{
+	width: 480px;
+	margin: 0;
+}
+#buttons{
+	width: 600px;
+	margin:10px;
+	border-top: 1px dashed black;
+}
