@@ -30,7 +30,7 @@
 		errorMsg.add("아이디를 반드시 입력해주세요.");
 	}
 	
-	if(pwd == null || pwd.trim().length() == 0){
+	if(pwd == null || pwd.trim().length() < 6){
 		errorMsg.add("비밀번호는 6자 이상 입력해주세요.");
 	}
 	
@@ -109,7 +109,7 @@
  		<b><%=nickname%></b> 님 등록해주셔서 감사합니다.
  	</div>
  	 	<div>
- 		<a href="main.html">목록으로</a>
+ 		<a href="main.jsp">목록으로</a>
  	</div>
  	<%} %>
  </div>
