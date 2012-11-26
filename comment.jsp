@@ -22,11 +22,15 @@
 			review_id = request.getParameter("review_id");
 			String user_id = (String) session.getAttribute("id"); //사용자 아이디
 			String content = request.getParameter("reply");
-			stmt = conn.prepareStatement("INSERT INTO reply(review_id, user_id, content, writetime) VALUE(?,?,?,NOW())");
+			String stars = request.getParameter("star");
+			//댓글에 들어갈 디비를 삽입하기
+			stmt = conn.prepareStatement("INSERT INTO reply(review_id, user_id, content, writetime, stars) VALUE(?,?,?,NOW(),?)");
 			stmt.setInt(1, Integer.parseInt(review_id));
 			stmt.setString(2, user_id);
 			stmt.setString(3, content);
+			stmt.setInt(4, Integer.parseInt(stars));
 			stmt.executeUpdate();
+			stmt = conn.prepareStatement("UPDATE review_board SET stars_sum= stars_sum + stars WHERE ");
 		}
 %>
 <!DOCTYPE html>
