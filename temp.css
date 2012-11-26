@@ -4,7 +4,7 @@
 #header{background-color: #B2EBF4; height: 263px;margin:0;}
 #main{background-color: #B2EBF4; height: 500px;margin:0px 0 10px 0;}
 #footer{background-color:#d5dde2; color:#888; text-align:center; font-size: 11px; padding:10px;}
-.btn{
+#top .btn{
   background-color: hsl(67, 10%, 50%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#aeb09f", endColorstr="#898c72");

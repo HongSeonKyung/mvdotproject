@@ -8,7 +8,7 @@
 	<style>
 #navbar{width:960px;height:30px; background-color:  #6F83D6;} 
 #navbar ul{margin:5; padding:0;}
-#navbar ul li{float:left;}
+#navbar ul li{float:left; list-style-type: none;}
 #navbar ul li a{
 		color: #000; background-color:#66A1D2;
 		display:block;

@@ -17,8 +17,8 @@
  
 		  <div id="header" >
 			<form class="navbar-form pull-left">
-				<jsp:include page="final.jsp">
-		 		<jsp:param name="current" value="top"/>
+				<jsp:include page="slideshow.jsp">
+		 		<jsp:param name="current" value="slide"/>
 		 		</jsp:include>
 			 </form>
 		</div>
