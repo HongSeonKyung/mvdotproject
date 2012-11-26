@@ -30,7 +30,7 @@
 		errorMsg.add("아이디를 반드시 입력해주세요.");
 	}
 	
-	if(pwd == null || pwd.trim().length() == 0){
+	if(pwd == null || pwd.trim().length() < 6){
 		errorMsg.add("비밀번호는 6자 이상 입력해주세요.");
 	}
 	
@@ -81,10 +81,12 @@
 <meta charset="UTF-8">
 	<title>회원가입감사</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="temp.css" type="text/css" rel="stylesheet"/>
 	 <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+<div id = "wrap">
  <jsp:include page="top.jsp">
  	<jsp:param name="current" value="top"/>
  </jsp:include>
@@ -109,10 +111,11 @@
  		<b><%=nickname%></b> 님 등록해주셔서 감사합니다.
  	</div>
  	 	<div>
- 		<a href="main.html">목록으로</a>
+ 		<a href="main.jsp">목록으로</a>
  	</div>
  	<%} %>
  </div>
 	<jsp:include page="footer.jsp"></jsp:include> 
+</div>
 </body>
 </html>

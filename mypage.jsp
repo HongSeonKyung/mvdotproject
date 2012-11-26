@@ -60,15 +60,18 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>mypage</title>
+<title>my page</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<link href="temp.css" type="text/css" rel="stylesheet"/>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+<div id = "wrap">
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
+ 			
  			<jsp:include page="menubar.jsp">
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
@@ -90,5 +93,6 @@
  </div>
  
  <jsp:include page="footer.jsp"></jsp:include>
+ </div>
 </body>
 </html>
