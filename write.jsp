@@ -4,30 +4,32 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-		<%
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
+<%
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
 
-		String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
-		String dbUser = "mvtest";
-		String dbPassword = "mv541830";
-		try {
-			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-			if (conn != null) {
-				int result = 0;
-				request.setCharacterEncoding("utf-8");
-				String id = (String) session.getAttribute("id"); //사용자 아이디
-				String subject = request.getParameter("subject");
-				String content = request.getParameter("content");
-				stmt = conn.prepareStatement("INSERT INTO REVIEW_BOARD(user_id,subject,content,writetime, vote_cnt) " + "VALUES(?, ?, ?, NOW()), 0");
-				stmt.setString(1, id);
-				stmt.setString(2, subject); 
-				stmt.setString(3, content);
-				
-				result = stmt.executeUpdate();
-			}
+	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
+	String dbUser = "mvtest";
+	String dbPassword = "mv541830";
+	try {
+		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+		if (conn != null) {
+			int result = 0;
+			request.setCharacterEncoding("utf-8");
+			String id = (String) session.getAttribute("id"); //사용자 아이디
+			String subject = request.getParameter("subject");
+			String content = request.getParameter("content");
+			String sql = "INSERT INTO REVIEW_BOARD(user_id, subject, content, writetime, vote_cnt) " + "VALUES(?, ?, ?, NOW(), 0)";
+			System.out.println(sql);
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			stmt.setString(2, subject);
+			stmt.setString(3, content);
+
+			result = stmt.executeUpdate();
+		}
 %>
 <!DOCTYPE html>
 <html>
@@ -39,11 +41,8 @@
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp">
-		<jsp:param name="current" value="write" />
-	</jsp:include>
-<jsp:include page="allreview.jsp"></jsp:include>
-<%
+	<jsp:include page="allreview.jsp"></jsp:include>
+	<%
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
