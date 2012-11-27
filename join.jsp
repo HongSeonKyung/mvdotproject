@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
  <%
 	String errorMsg=null;
- 	String actionUrl;
+ 	String actionUrl=null;
 	Connection conn = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
@@ -106,7 +106,7 @@
   <div class="container">
     <div>
 		 <h3>회원 가입</h3>
-     <form name="frm" class="form-horizontal" action="register.jsp" method="post">
+     <form name="frm" class="form-horizontal" action="<%=actionUrl%>" method="post">
 			<fieldset>
 	   	 <table>
 	   	 <tbody>
@@ -160,8 +160,11 @@
 				</tr>				
  				<tr>        
  					<th class="button" colspan="2">
- 		
-          				<input type="submit" value="가입" > 
+ 									<%if(id!=null){%>
+ 									<input type="submit" value="수정" > 
+ 									<%}else{%>
+ 									<input type="submit" value="가입" >
+ 									<% }%>
 			 			<input type="button" value="취소" onclick="history.back()">
  				</th>
  				</tr>

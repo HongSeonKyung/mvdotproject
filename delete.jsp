@@ -50,12 +50,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title>회원가입감사</title>
+	<title>탈퇴되었습니다.</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	 <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+<div id="wrap">
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
@@ -75,9 +76,10 @@
  	</div>
  	<%}%>
  	<div class ="form-action">
- 		<a href="main.html">목록으로</a>
+ 		<a href="main.jsp">목록으로</a>
  	</div>
  </div>
 	<jsp:include page="footer.jsp"></jsp:include> 
+</div>
 </body>
 </html>
