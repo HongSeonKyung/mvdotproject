@@ -27,9 +27,9 @@
 			stmt = conn.prepareStatement("UPDATE review_board SET vote_cnt= vote_cnt + 1 WHERE review_id= ?");
 			stmt.setInt(1, Integer.parseInt(review_id));
 			stmt.executeUpdate();
-			//댓글
-			stmt = conn.prepareStatement("SELECT user_id, content, (SELECT nickname FROM users WHERE id=user_id) nickname, DATE_FORMAT(writetime, '%Y-%m-%d %H:%i') time FROM reply WHERE review_id=?");
-			stmt.setInt(1, Integer.parseInt(review_id));
+			//댓글의 정보를 가져오기
+			stmt = conn.prepareStatement("SELECT user_id, content, (SELECT nickname FROM users WHERE id=user_id) nickname, DATE_FORMAT(writetime, '%Y-%m-%d %H:%i') time, (SELECT star_point FROM star_points WHERE star_points.user_id=reply.user_id AND review_id=?) stars FROM reply WHERE review_id=?");
+			stmt.setInt(1, Integer.parseInt(review_id));stmt.setInt(2, Integer.parseInt(review_id));
 			rs2 = stmt.executeQuery();
 		}
 %>
@@ -44,9 +44,6 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
-	<div id = "wrap">
-=======
 <div id="wrap">
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
@@ -74,7 +71,17 @@
 	</div>
 	<%
 			while (rs2.next()) {
-				out.print("<div>" + rs2.getString("nickname") +": " + rs2.getString("content") + "</div>");
+				String starString = "";
+				int i =0;
+				//별점 보이게 하기
+				for( i=0;i<rs2.getInt("stars");i++){
+					starString += "★";
+				}
+				for(;i<5;i++){
+					starString+="☆";
+				}
+				//댓글 출력 
+				out.print("<div>" + rs2.getString("nickname") + starString + ": " + rs2.getString("content") + "</div>");
 				out.print("<div>" + rs2.getString("time") + "</div>");
 			}
 		} catch (SQLException e) {
@@ -120,7 +127,6 @@
 		<a href="allreview.jsp">목록으로</a>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
-</div>
 </div>	
 </body>
 </html>
