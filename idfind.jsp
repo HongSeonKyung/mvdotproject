@@ -6,13 +6,14 @@
 	<meta charset="UTF-8">
 	<title>아이디/ 비밀번호 찾기</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="temp.css" type="text/css" rel="stylesheet"/>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	</script>
 	<style>
 	#findmenubar{float:left;}
-	#findmenubar ul li a{
+	#findmenubar ul li {
 		color: #000; background-color:#66A1D2;
 		display:block;
 		text-align:center;
@@ -20,14 +21,18 @@
 		width: 120px;
 		margin-right:1px;
 		text-decoration:none;
+		list-style: none;
 	}
 	</style>
 </head>
 <body>
- <jsp:include page="header.jsp">
+<div id="wrap">
+ <jsp:include page="top.jsp">
  	<jsp:param name="current" value="Login"/>
  </jsp:include>
- 
+ <jsp:include page="menubar.jsp">
+ 	<jsp:param name="current" value="Login"/>
+ </jsp:include>
  <div id="findmenuBar">
 			<ul>
 			<li><a href="idfind.jsp" class="selected">아이디 찾기</a></li>
@@ -49,5 +54,6 @@
 </form>
  	
 	<jsp:include page="footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>

@@ -11,13 +11,20 @@
 <title>login</title>
 </head>
 <body onresize="parent.resizeTo(500,400)" onload="parent.resizeTo(500,400)">
+<script type="text/javascript">
+ function go_close()              // 자식창 닫기
+ {
+	 setTimeout("window.close()",0);
+ }
+</script>
+
 <form action="logincheck.jsp" method="post">
 	 <b>아이디</b><br>
 	   <input type="text" name="id" placeholder="id"><br>
 	 <b>비밀번호</b><br>
 	  <input type="password" name="pwd" placeholder="password"><br><br>
 	  <span style="float:right"><input type="submit" value="로그인"></span><br><br>
-	  <a href="join.jsp">회원가입</a> | <a href="idfind.jsp">아이디</a>/<a href="pwdfind.jsp">비밀번호찾기</a>
+	  <a href="join.jsp"  target=_blank onClick="go_close()" >회원가입</a> | <a href="idfind.jsp" target=_blank  onClick="go_close()">아이디 </a>/ <a href="pwdfind.jsp"  target=_blank onClick="go_close()">비밀번호찾기</a>
   </form> 
 </body>
 </html>

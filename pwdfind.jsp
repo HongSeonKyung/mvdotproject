@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<title>아이디/ 비밀번호 찾기</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="temp.css" type="text/css" rel="stylesheet"/>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
@@ -13,13 +14,19 @@
 	
 </head>
 <body>
- <jsp:include page="header.jsp">
- 	<jsp:param name="current" value="Login"/>
- </jsp:include>
+<div id="wrap">
+ 			<jsp:include page="top.jsp">
+ 			<jsp:param name="current" value="top"/>
+ 			</jsp:include>
+ 			
+ 			<jsp:include page="menubar.jsp">
+ 			<jsp:param name="current" value="menubar"/>
+ 			</jsp:include>
+ 			
  <div id="findmenuBar">
 			<ul>
-			<li><a href="idfind.jsp" class="selected">아이디 찾기</a></li>
-			 <li><a href="pwdfind.jsp">비밀번호 찾기</a></li>
+			<li><a href="idfind.jsp" >아이디 찾기</a></li>
+			 <li><a href="pwdfind.jsp" class="selected">비밀번호 찾기</a></li>
 			</ul>	
 </div>
 
@@ -37,5 +44,5 @@
 </form>
  	
 	<jsp:include page="footer.jsp"></jsp:include>
-</body>
+</div></body>
 </html>
