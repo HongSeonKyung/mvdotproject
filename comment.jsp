@@ -24,13 +24,17 @@
 			String content = request.getParameter("reply");
 			String stars = request.getParameter("star");
 			//댓글에 들어갈 디비를 삽입하기
-			stmt = conn.prepareStatement("INSERT INTO reply(review_id, user_id, content, writetime, stars) VALUE(?,?,?,NOW(),?)");
+			stmt = conn.prepareStatement("INSERT INTO reply(review_id, user_id, content, writetime) VALUE(?,?,?,NOW())");
 			stmt.setInt(1, Integer.parseInt(review_id));
 			stmt.setString(2, user_id);
 			stmt.setString(3, content);
-			stmt.setInt(4, Integer.parseInt(stars));
 			stmt.executeUpdate();
-			stmt = conn.prepareStatement("UPDATE review_board SET stars_sum= stars_sum + stars WHERE ");
+			//별점에 들어갈 디비 삽입
+			stmt = conn.prepareStatement("INSERT INTO star_points(review_id, user_id, star_point) VALUE(?,?,?)");
+			stmt.setInt(1, Integer.parseInt(review_id));
+			stmt.setString(2, user_id);
+			stmt.setInt(3, Integer.parseInt(stars));
+			stmt.executeUpdate();
 		}
 %>
 <!DOCTYPE html>
