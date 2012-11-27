@@ -80,6 +80,7 @@
  <div class ="form-actions">
   <a href="mypage.jsp">마이페이지</a>
   <a href ="join.jsp?id<%=id%>">수정</a>
+  <a href ="mywrite.jsp?id<%=id%>">내가 쓴 글 확인하기</a>
   
  </div>
  <div>
