@@ -48,7 +48,6 @@
 	<div id = "wrap">
 =======
 <div id="wrap">
->>>>>>> a121f8f36dc5f1158a0790e8a83677f265e34e69
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
 	</jsp:include>
@@ -121,10 +120,7 @@
 		<a href="allreview.jsp">목록으로</a>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
-<<<<<<< HEAD
 </div>
-=======
 </div>	
->>>>>>> a121f8f36dc5f1158a0790e8a83677f265e34e69
 </body>
 </html>
