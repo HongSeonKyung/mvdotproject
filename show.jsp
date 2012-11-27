@@ -19,19 +19,16 @@
 		if (conn != null) {
 			request.setCharacterEncoding("utf-8");
 			review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
-			stmt = conn
-					.prepareStatement("SELECT subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD "
 							+ "WHERE review_id=?"); //클릭한 게시글의 아이디로 제목, 내용, 날짜를 가져온다.
 			stmt.setInt(1, Integer.parseInt(review_id));//게시물 아이디를 설정한다.
 			rs = stmt.executeQuery();
-
-			stmt = conn
-					.prepareStatement("UPDATE review_board SET vote_cnt= vote_cnt + 1 WHERE review_id= ?");
+			//조회수를 하나씩 증가시키기
+			stmt = conn.prepareStatement("UPDATE review_board SET vote_cnt= vote_cnt + 1 WHERE review_id= ?");
 			stmt.setInt(1, Integer.parseInt(review_id));
 			stmt.executeUpdate();
-
-			stmt = conn
-					.prepareStatement("SELECT user_id, content, (SELECT nickname FROM users WHERE id=user_id) nickname, DATE_FORMAT(writetime, '%Y-%m-%d %H:%i') time FROM reply WHERE review_id=?");
+			//댓글
+			stmt = conn.prepareStatement("SELECT user_id, content, (SELECT nickname FROM users WHERE id=user_id) nickname, DATE_FORMAT(writetime, '%Y-%m-%d %H:%i') time FROM reply WHERE review_id=?");
 			stmt.setInt(1, Integer.parseInt(review_id));
 			rs2 = stmt.executeQuery();
 		}
@@ -47,7 +44,6 @@
 </script>
 </head>
 <body>
-<div id = "wrap">
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
 	</jsp:include>
@@ -105,17 +101,20 @@
 	<div>
 		<form action="comment.jsp" method="post">
 			<select name="star" size=1>
-				<option value="star5" style="background: url(images/star5.png);"></option>
+				<option value="5">★★★★★</option>
+				<option value="4">★★★★☆</option>
+				<option value="3">★★★☆☆</option>
+				<option value="2">★★☆☆☆</option>
+				<option value="1">★☆☆☆☆</option>
 			</select> 
-			<input type="text" name="reply" size="90px"> 
+			<input type="text" name="reply" size="80px"> 
 			<input type="submit" name="reply_register" value="댓글"> 
-			<input type="hidden" name="review_id" value="<%=review_id%>" />
+			<input type="hidden" name="review_id" value="<%=review_id%>"/>
 		</form>
 	</div>
 	<div>
 		<a href="allreview.jsp">목록으로</a>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
-</div>
 </body>
 </html>
