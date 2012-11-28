@@ -39,12 +39,7 @@
 		
 		List<String> errorMsg = new ArrayList<String>();
 		int result = 0;
-	
-		if(userid == null || userid.trim().length() == 0){
-			errorMsg.add("아이디를 반드시 입력해주세요.");
-		}
-		
-	
+	  
 		if(name == null || name.trim().length() == 0){
 			errorMsg.add("이름을 반드시 입력해주세요.");
 		}
@@ -93,7 +88,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title>회원가입감사</title>
+	<title>수정</title>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="temp.css" type="text/css" rel="stylesheet"/>
 	 <script src="http://code.jquery.com/jquery-latest.js"></script>
