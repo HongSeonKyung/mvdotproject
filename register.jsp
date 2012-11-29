@@ -84,6 +84,9 @@
 		<link href="temp.css" type="text/css" rel="stylesheet"/>
 	 <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<style>
+	#login1{text-align:center;}
+	</style>
 </head>
 <body>
 <div id = "wrap">
@@ -108,11 +111,20 @@
  	</div>
  	<%} else if(result == 1){%>
  	<div>
- 		<b><%=nickname%></b> 님 등록해주셔서 감사합니다.
+ 		<br><br><h1><b><%=nickname%></b> 님 가입을 축하드립니다.</h1>
  	</div>
- 	 	<div>
- 		<a href="main.jsp">목록으로</a>
- 	</div>
+ 	<hr>
+<div id=login1>
+ 	<form action="logincheck2.jsp" method="post">
+	 <b>아이디</b>
+	   <input type="text" name="id" placeholder="id"><br>
+	 <b>비밀번호</b>
+	  <input type="password" name="pwd" placeholder="password"><br><br>
+	<span style="float:right"><input type="submit" value="로그인"></span><br><br>
+  </form> 
+</div>
+<hr>
+ 	 	
  	<%} %>
  </div>
 	<jsp:include page="footer.jsp"></jsp:include> 
