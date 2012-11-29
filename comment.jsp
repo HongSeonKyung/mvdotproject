@@ -30,6 +30,7 @@
 			stmt.setString(2, user_id);
 			stmt.setString(3, content);
 			stmt.executeUpdate();
+			
 			//요청된 별점에 값이있으면 아직 별점을 등록 못했으므로 삽입한다.
 			if(stars != null){
 				//별점에 들어갈 디비 삽입
@@ -37,6 +38,7 @@
 				stmt.setInt(1, Integer.parseInt(review_id));
 				stmt.setString(2, user_id);
 				stmt.setInt(3, Integer.parseInt(stars));
+				stmt.executeUpdate();
 			}
 		}
 %>

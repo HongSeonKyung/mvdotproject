@@ -66,7 +66,7 @@
 		<form action="write.html" method=post>
 			<div>
 				<input name="board_write" value="글작성" 
-				<%//만약 로그인이 안되어 있으면 writeAlert을 호출
+				<%//만약 로그인이 안되어 있으면 writeAlert을 호출한다.
 					if(disabled){%>
 						tyep="button"
 						onclick="javascript:writeAlert()"
