@@ -135,11 +135,19 @@ function addPoint(){
 				out.print("disabled");
 			}
 			%>>
+			<%if(disabled){%>
+				<option value="0">★★★★★</option>
+				<option value="0">★★★★☆</option>
+				<option value="0">★★★☆☆</option>
+				<option value="0">★★☆☆☆</option>
+				<option value="0">★☆☆☆☆</option>
+			<%} else {%>
 				<option value="5">★★★★★</option>
 				<option value="4">★★★★☆</option>
 				<option value="3">★★★☆☆</option>
 				<option value="2">★★☆☆☆</option>
 				<option value="1">★☆☆☆☆</option>
+			<%} %>
 			</select> 
 			<input type="text" name="reply" size="80px"> 
 			<input type="submit" name="reply_register" value="댓글"> 
