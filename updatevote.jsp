@@ -8,8 +8,7 @@
 	Connection conn = null;
 	PreparedStatement stmt = null;
 	
-	String review_id = "";
-	String user_id = null;
+	String review_id = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
@@ -17,15 +16,25 @@
 	try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		if (conn != null) {
-			request.setCharacterEncoding("utf-8");
+		  request.setCharacterEncoding("utf-8");
 			 review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
-			 user_id = request.getParameter("user_id");
-			//공감한 만큼 user_id 수를 증가 시킨다.
-			stmt = conn.prepareStatement("INSERT INTO VOTE(review_id, user_id) VALUE(?,?)");
-			stmt.setInt(1, Integer.parseInt(review_id)); 
-			stmt.setString(2, user_id);
-			stmt.executeUpdate(); 
-		}
+			//vote테이블에 데이터 삽입
+			 stmt = conn.prepareStatement("INSERT INTO VOTE(review_id, user_id) VALUE(?,?)");
+			 stmt.setInt(1, Integer.parseInt(review_id));
+			 stmt.setString(2, (String)session.getAttribute("id"));
+			 stmt.executeUpdate(); 
+		} %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>공감추가</title>
+	<link href="temp.css" type="text/css" rel="stylesheet"/>
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<% 
+out.print(review_id);
 	} catch (SQLException e) {
 		
 	} finally {
@@ -39,7 +48,6 @@
 				conn.close();
 			} catch (SQLException e) {
 			}
-		
 		response.sendRedirect("show.jsp?review_id=" + review_id);
 	}
 %>
