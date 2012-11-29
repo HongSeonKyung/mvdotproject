@@ -30,8 +30,7 @@
 			id = "";
 		}
 		request.setCharacterEncoding("utf-8");
-		String userid = request.getParameter("userid");
-		String pwd = request.getParameter("pwd");
+		String password = request.getParameter("pwd");
 		String name = request.getParameter("name");
 		String nickname = request.getParameter("nickname");
 		String facebook_id = request.getParameter("facebook_id");
@@ -39,7 +38,9 @@
 		
 		List<String> errorMsg = new ArrayList<String>();
 		int result = 0;
-	  
+		if(name == null || password.trim().length() == 0){
+			errorMsg.add("패스워드를 반드시 입력해주세요.");
+		}
 		if(name == null || name.trim().length() == 0){
 			errorMsg.add("이름을 반드시 입력해주세요.");
 		}
@@ -60,15 +61,15 @@
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
 					"UPDATE users " +
-					"SET  name=?, nickname=?, facebook_id=?, facebook_address=?" +
+					"SET  password=?, name=?, nickname=?, facebook_id=?, facebook_address=?" +
 					"WHERE id=?"
 					);
-		
-			stmt.setString(1, name);
-			stmt.setString(2, nickname);
-			stmt.setString(3, facebook_id);
-			stmt.setString(4, facebook_address);
-			stmt.setString(5, id);
+			stmt.setString(1, password);
+			stmt.setString(2, name);
+			stmt.setString(3, nickname);
+			stmt.setString(4, facebook_id);
+			stmt.setString(5, facebook_address);
+			stmt.setString(6, id);
 			
 			result = stmt.executeUpdate();
 			if (result != 1) {
@@ -117,7 +118,7 @@
  	</div>
  	<%} else if(result == 1){%>
  	<div>
- 		<b><%=nickname%></b> 님 수정되었습니다.
+ 		<b><%=name%></b> 님 수정되었습니다.
  	</div>
  	 	<div>
  		<a href="main.jsp">목록으로</a>

@@ -16,7 +16,7 @@
 	String dbUser = "mvtest";
 	String dbPassword = "mv541830";
 
-	
+	String password="";
 	String name = "";
 	String nickname = "";
 	String facebook_id = "";
@@ -39,14 +39,13 @@
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
 	 		// 질의 준비
-			stmt = conn.prepareStatement("SELECT NAME, NICKNAME,FACEBOOK_ID, FACEBOOK_ADDRESS FROM USERS WHERE ID= ?");
-			String sql = "INSERT INTO USERS(name, nickname, facebook_id, facebook_address) " + "VALUES(?, ?, ?, ?)";
-	 		stmt.setString(1, id);
+			stmt = conn.prepareStatement("SELECT PASSWORD,NAME, NICKNAME,FACEBOOK_ID, FACEBOOK_ADDRESS FROM USERS WHERE ID= ?");
+		  stmt.setString(1, id);
+			rs = stmt.executeQuery();
 			
 			// 수행
-	 		rs = stmt.executeQuery();
-			
-			if (rs.next()) {
+	    while(rs.next()) {
+				password=rs.getString("password");
 				name=rs.getString("name");
 				nickname=rs.getString("nickname");
 				facebook_id=rs.getString("facebook_id");
@@ -82,7 +81,7 @@
 	function returnPage(){
 		window.location="main.jsp"
 	}
-} 
+
 	</script>
 	
 </head>
@@ -106,13 +105,13 @@
     		</tr>
 		    <tr>
 					<th><label for="name">비밀번호</label></th>
-					<td><input type="password" id="pwd" name="pwd" value=""/>
+					<td><input type="password" id="pwd" name="pwd" value="<%=password%>"/>
 							<p style="font-size:9pt; color:red;">비밀번호는 6~20자로 되어야 합니다.</p>
 					</td>
 				</tr>		
 				<tr>
 					<th><label for="name">비밀번호확인</label></th>
-					<td><input type="password" id="pwdchk" name="pwdchk" onblur="javascript:checkPwd();" value=""/>
+					<td><input type="password" id="pwdchk" name="pwdchk" onblur="javascript:checkPwd();" value="<%=password%>"/>
 							<p style="font-size:9pt; color:red;">비밀번호를 동일하게 입력하세요.</p>
 					</td>
 				</tr>			
