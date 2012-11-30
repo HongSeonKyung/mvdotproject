@@ -6,7 +6,7 @@
 <%@page import="java.sql.PreparedStatement"%>	
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%
+<%
 	
 	String actionUrl;
   String errorMsg=null;
@@ -54,8 +54,13 @@
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	 <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	
 </head>
-<body>
+<body onload="refreshParent()">
+	<%		
+	session.invalidate();	
+	%>
+		로그아웃 되었습니다.
 <div id="wrap">
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
@@ -63,6 +68,7 @@
  			<jsp:include page="menubar.jsp">
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
+ 	</div>
  <div class="container">
  <% if(errorMsg!=null){%>
  <div class="alert alert-error">
@@ -75,10 +81,7 @@
  		사용자 정보를 삭제하였습니다. 
  	</div>
  	<%}%>
- 	<div class ="form-action">
- 		<a href="main.jsp">목록으로</a>
  	</div>
- </div>
 	<jsp:include page="footer.jsp"></jsp:include> 
 </div>
 </body>

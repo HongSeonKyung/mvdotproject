@@ -76,11 +76,11 @@
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
  
- <h3> 님 환영합니다.</h3>
+ <h3> <%=name%>님 환영합니다.</h3>
  <div class ="form-actions">
   <a href="mypage.jsp">마이페이지</a>
   <a href ="repairmypage.jsp?id<%=id%>">수정</a>
-  <a href ="delete.jsp?id<%=id%>">삭제</a>
+  <a href ="delete2.jsp?id">탈퇴</a>
   <a href ="mywrite.jsp?id<%=id%>">내가 쓴 글 확인하기</a>
   
  </div>

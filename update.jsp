@@ -121,7 +121,8 @@
  		<b><%=name%></b> 님 수정되었습니다.
  	</div>
  	 	<div>
- 		<a href="main.jsp">목록으로</a>
+ 		<a href="main.jsp">목록</a>
+ 		<a href="mypage.jsp">마이페이지</a>
  	</div>
  	<%} %>
  </div>
