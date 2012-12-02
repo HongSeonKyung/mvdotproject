@@ -9,13 +9,14 @@
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = null;
 	PreparedStatement stmt = null;
-	ResultSet rs = null, rs2 = null, rs3 = null;
+	ResultSet rs = null, rs2 = null, rs3 = null, rs4 = null;
 	String review_id = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
 	String dbPassword = "mv541830";
 	boolean disabled = false;
+	boolean addpoint = false;//공감하기를 했는지 확인
 	try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		if (conn != null) {
@@ -41,6 +42,13 @@
 			while(rs3.next()){
 				disabled = true;
 			}
+			stmt = conn.prepareStatement("SELECT * FROM vote WHERE review_id=? AND user_id=?");
+			stmt.setInt(1, Integer.parseInt(review_id));
+			stmt.setString(2, (String)session.getAttribute("id"));
+		  rs4 = stmt.executeQuery();
+			while(rs4.next()){
+				addpoint = true;
+			}
 		}
 %>
 <!DOCTYPE html>
@@ -51,8 +59,13 @@
 <link href="write.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript">
 function addPoint(){
-	alert("클릭이 된다.");
-	window.location = "updatevote.jsp?review_id=" + <%=review_id%>;
+	//이미공감을 했을때
+	if(true){
+		alert("이미 공감을 추가하셨습니다.");
+	} else { //아직 공감을 안했을때
+		alert("공감을 하나 추가하셨습니다.");		
+		window.location = "updatevote.jsp?review_id=" + <%=review_id%>;
+	}
 }
 </script>
 </head>
@@ -79,7 +92,11 @@ function addPoint(){
 				}
 		%>
 		<div id="buttons">
+		<% if(addpoint != true) {%>
 			<input type="button" name="vote" value="공감하기" style="cursor: hand;" onclick="javascript:addPoint()"/>
+		<%} else { %>
+			<input type="button" name="vote" value="공감했음" style="cursor: hand;" onclick="javascript:addPoint()"/>
+		<%} %>
 		</div>
 	</div>
 	<%
@@ -141,7 +158,7 @@ function addPoint(){
 				<option value="0">★★★☆☆</option>
 				<option value="0">★★☆☆☆</option>
 				<option value="0">★☆☆☆☆</option>
-			<%} else {%>
+			<%} else if(disabled == false){%>
 				<option value="5">★★★★★</option>
 				<option value="4">★★★★☆</option>
 				<option value="3">★★★☆☆</option>
