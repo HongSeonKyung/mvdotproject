@@ -7,8 +7,10 @@
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = null;
 	PreparedStatement stmt = null;
+	ResultSet rs = null;
 	
 	String review_id = null;
+	boolean addpoint = false;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
@@ -18,11 +20,21 @@
 		if (conn != null) {
 		  request.setCharacterEncoding("utf-8");
 			 review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
-			//vote테이블에 데이터 삽입
-			 stmt = conn.prepareStatement("INSERT INTO VOTE(review_id, user_id) VALUE(?,?)");
-			 stmt.setInt(1, Integer.parseInt(review_id));
-			 stmt.setString(2, (String)session.getAttribute("id"));
-			 stmt.executeUpdate(); 
+				stmt = conn.prepareStatement("SELECT * FROM vote WHERE review_id=? AND user_id=?");
+				stmt.setInt(1, Integer.parseInt(review_id));
+				stmt.setString(2, (String)session.getAttribute("id"));
+			  rs = stmt.executeQuery();
+				while(rs.next()){
+					addpoint = true;
+				}
+				// 공감하기를 안했다면 공감수 추가됨
+			 if(addpoint == false){	 
+					//vote테이블에 데이터 삽입
+				 stmt = conn.prepareStatement("INSERT INTO VOTE(review_id, user_id) VALUE(?,?)");
+				 stmt.setInt(1, Integer.parseInt(review_id));
+				 stmt.setString(2, (String)session.getAttribute("id"));
+				 stmt.executeUpdate(); 
+			 }
 		} %>
 <!DOCTYPE html>
 <html>
@@ -34,7 +46,6 @@
 </head>
 <body>
 <% 
-out.print(review_id);
 	} catch (SQLException e) {
 		
 	} finally {
