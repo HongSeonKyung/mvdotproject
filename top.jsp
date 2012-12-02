@@ -50,7 +50,6 @@
 				
 				
 				<a href="mypage.jsp" class="btn" type="button"><i class="icon-user"></i> my page </a>
-				<a href="update.jsp" class="btn" type="button"> 수정페이지 </a>
 			</div>
 		</div>	
 
