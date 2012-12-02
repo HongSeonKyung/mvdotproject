@@ -68,7 +68,7 @@
 				<input name="board_write" value="글작성" 
 				<%//만약 로그인이 안되어 있으면 writeAlert을 호출한다.
 					if(disabled){%>
-						tyep="button"
+						type="button"
 						onclick="javascript:writeAlert()"
 					<%} else {//로그인이 되어있으면 write.html로 이동%>
 						type="submit"
@@ -84,16 +84,6 @@
 	} catch (SQLException e) {
 						e.printStackTrace();
 					} finally {
-						if (rs != null)
-							try {
-								rs.close();
-							} catch (SQLException e) {
-							}
-						if (stmt != null)
-							try {
-								stmt.close();
-							} catch (SQLException e) {
-							}
 						if (conn != null)
 							try {
 								conn.close();
