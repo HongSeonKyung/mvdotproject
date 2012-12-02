@@ -56,7 +56,7 @@
   margin:0;
   padding:0;
   font:normal 11px Verdana, Geneva, sans-serif;
-  color:#ccc;
+/* color:#ccc; 이거 때문에 글자색이 이상하게 보임...!!*/
 }
 
 /*
