@@ -34,6 +34,12 @@
 				 stmt.setInt(1, Integer.parseInt(review_id));
 				 stmt.setString(2, (String)session.getAttribute("id"));
 				 stmt.executeUpdate(); 
+			 } else {
+				 stmt.close();
+				 stmt = conn.prepareStatement("DELETE FROM vote WHERE review_id= ? AND user_id=?");
+				 stmt.setInt(1, Integer.parseInt(review_id));
+				 stmt.setString(2, (String)session.getAttribute("id"));
+				 stmt.executeUpdate();
 			 }
 		} %>
 <!DOCTYPE html>

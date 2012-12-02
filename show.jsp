@@ -42,6 +42,7 @@
 			while(rs3.next()){
 				disabled = true;
 			}
+			//공감을 했는지 안했는지 알기..
 			stmt = conn.prepareStatement("SELECT * FROM vote WHERE review_id=? AND user_id=?");
 			stmt.setInt(1, Integer.parseInt(review_id));
 			stmt.setString(2, (String)session.getAttribute("id"));
@@ -60,12 +61,13 @@
 <script type="text/javascript">
 function addPoint(){
 	//이미공감을 했을때
-	if(true){
-		alert("이미 공감을 추가하셨습니다.");
-	} else { //아직 공감을 안했을때
+	<%if(addpoint){%>
+		alert("공감을 취소하시겠습니까?");
+		window.location = "updatevote.jsp?review_id=" + <%=review_id%>;
+	<%} else { //아직 공감을 안했을때%>
 		alert("공감을 하나 추가하셨습니다.");		
 		window.location = "updatevote.jsp?review_id=" + <%=review_id%>;
-	}
+	<%}%>
 }
 </script>
 </head>
@@ -95,7 +97,7 @@ function addPoint(){
 		<% if(addpoint != true) {%>
 			<input type="button" name="vote" value="공감하기" style="cursor: hand;" onclick="javascript:addPoint()"/>
 		<%} else { %>
-			<input type="button" name="vote" value="공감했음" style="cursor: hand;" onclick="javascript:addPoint()"/>
+			<input type="button" name="vote" value="공감취소" style="cursor: hand;" onclick="javascript:addPoint()"/>
 		<%} %>
 		</div>
 	</div>
