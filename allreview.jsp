@@ -1,5 +1,3 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.SQLException"%>
@@ -9,8 +7,6 @@
 <%
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = null;
-	PreparedStatement stmt = null;
-	ResultSet rs = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
