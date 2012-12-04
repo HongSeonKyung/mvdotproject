@@ -1,4 +1,4 @@
-﻿<%@page import="java.sql.*"%>
+<%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -10,6 +10,8 @@
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	String review_id = null;
+	String user_id = null;
+	String id = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
@@ -34,6 +36,10 @@
 <title>show review</title>
 <link href="write.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript">
+function delectclick(){
+	alert("정말 삭제하시겠습니까?");
+	window.location = "deletemywrite.jsp?review_id=" + <%=review_id%>;
+}	
 </script>
 </head>
 <body>
@@ -57,6 +63,15 @@
 					out.print("<div id='text'>" + rs.getString("content") + "</div>");
 			}
 		%>
+			<form action="myrewrite.jsp" method="post">
+		<div id="buttons">
+	
+			<input type="hidden" name="review_id" value='<%=review_id%>'>
+			<input type="submit" name="change" value="수정" style="cursor: hand;">
+			<input type="button" name="cancel" value="삭제" style="cursor: hand;" onclick='javascript:delectclick()'>
+
+			</div>
+		</form>
 	</div>
 	<%
 		} catch (SQLException e) {
@@ -80,7 +95,7 @@
 		}
 	%>
 	<div>
-		<a href="allreview.jsp">목록으로</a>
+		<a href="mywrite.jsp">목록으로</a>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </div>	
