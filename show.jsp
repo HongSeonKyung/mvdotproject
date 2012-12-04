@@ -11,6 +11,8 @@
 	PreparedStatement stmt = null;
 	ResultSet rs = null, rs2 = null, rs3 = null;
 	String review_id = null;
+	String user_id = null;
+	String id = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
@@ -21,7 +23,7 @@
 		if (conn != null) {
 			request.setCharacterEncoding("utf-8");
 			review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
-			stmt = conn.prepareStatement("SELECT subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT user_id, subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD "
 							+ "WHERE review_id=?"); //클릭한 게시글의 아이디로 제목, 내용, 날짜를 가져온다.
 			stmt.setInt(1, Integer.parseInt(review_id));//게시물 아이디를 설정한다.
 			rs = stmt.executeQuery();
@@ -54,6 +56,10 @@ function addPoint(){
 	alert("클릭이 된다.");
 	window.location = "updatevote.jsp?review_id=" + <%=review_id%>;
 }
+function delectclick(){
+	alert("정말 삭제하시겠습니까?");
+	window.location = "deletewrite.jsp?review_id=" + <%=review_id%>;
+}	
 </script>
 </head>
 <body>
@@ -67,7 +73,8 @@ function addPoint(){
 	<div id="main_content">
 		<%
 			while (rs.next()) {
-					out.print("<div id='submit'>" + rs.getString("subject") + "</div>");
+				user_id = rs.getString("user_id");	
+				out.print("<div id='submit'>" + rs.getString("subject") + "</div>");
 		%>
 		<div id="write_style">
 			<div class="image"></div>
@@ -78,9 +85,28 @@ function addPoint(){
 					out.print("<div>" + rs.getString("time") + "</div>");
 				}
 		%>
+		<form action="rewrite.jsp" method="post">
 		<div id="buttons">
+<<<<<<< HEAD
 			<input type="button" name="vote" value="공감하기" style="cursor: hand;" onclick="javascript:addPoint()"/>
+=======
+		<% if(addpoint != true) {
+		%>
+			<input type="button" name="vote" value="공감하기" style="cursor: hand;" onclick="javascript:addPoint()"/>
+		<%} else { %>
+			<input type="button" name="vote" value="공감취소" style="cursor: hand;" onclick="javascript:addPoint()"/>
+		<%} %>
+		<% //내가 쓴 글이면 수정과 취소 버튼 보이게하기...
+			id = (String)session.getAttribute("id");
+			if(user_id.equals(id)){ 
+			%>
+			<input type="hidden" name="review_id" value='<%=review_id%>'>
+				<input type="submit" name="change" value="수정" style="cursor: hand;">
+				<input type="button" name="cancel" value="삭제" style="cursor: hand;" onclick='javascript:delectclick()'>
+		<%} %>
+>>>>>>> cb5fe7f2083c02fc125885061c0e259b24c3e687
 		</div>
+		</form>
 	</div>
 	<%
 			while (rs2.next()) {
