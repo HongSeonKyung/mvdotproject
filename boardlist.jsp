@@ -32,25 +32,18 @@
 					"FROM review_board R " +
 					"LEFT JOIN star_points S ON R.review_id=S.review_id " + 
 					"LEFT JOIN vote V ON R.review_id=V.review_id " + 
+					
 					"GROUP BY R.review_id " +
 					"ORDER BY review_id DESC");
 			rs = stmt.executeQuery();
 		}
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시글 목록</title>
-	<link href="temp.css" type="text/css" rel="stylesheet"/>
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script type="text/javascript">
 	function goPage(review_id){
 		window.location="show.jsp?review_id=" + review_id; 
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
 	</script>
-</head>
-<body>
+
 		<table border="1">
 			<tbody>
 			<tr>
@@ -101,5 +94,3 @@
 				%>
 		</tbody>
 	</table>	
-</body>
-</html>
