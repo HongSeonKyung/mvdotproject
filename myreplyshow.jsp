@@ -22,7 +22,7 @@
 		if (conn != null) {
 			request.setCharacterEncoding("utf-8");
 			review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
-			stmt = conn.prepareStatement("SELECT subject, content FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT content FROM REPLY "
 							+ "WHERE review_id=?"); //클릭한 게시글의 아이디로 제목, 내용를 가져온다.
 			System.out.println(review_id);
 			stmt.setInt(1, Integer.parseInt(review_id));
@@ -38,7 +38,7 @@
 <script type="text/javascript">
 function delectclick(){
 	alert("정말 삭제하시겠습니까?");
-	window.location = "deletemywrite.jsp?review_id=" + <%=review_id%>;
+	window.location = "deletemyreply.jsp?review_id=" + <%=review_id%>;
 }	
 </script>
 </head>
@@ -52,18 +52,11 @@ function delectclick(){
 	</jsp:include>
 	<div id="main_content">
 		<%
-			while (rs.next()) {
-					out.print("<div id='submit'>" + rs.getString("subject") + "</div>");
-		%>
-		<div id="write_style">
-			<div class="image"></div>
-			<div class="information"></div>
-		</div>
-		<%
+		while (rs.next()) {	
 					out.print("<div id='text'>" + rs.getString("content") + "</div>");
 			}
 		%>
-			<form action="myrewrite.jsp" method="post">
+			<form action="myreplyrewrite.jsp" method="post">
 		<div id="buttons">
 	
 			<input type="hidden" name="review_id" value='<%=review_id%>'>
@@ -95,7 +88,7 @@ function delectclick(){
 		}
 	%>
 	<div>
-		<a href="mywrite.jsp">목록으로</a>
+		<a href="myreply.jsp">목록으로</a>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </div>	

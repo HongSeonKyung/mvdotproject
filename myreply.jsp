@@ -15,10 +15,10 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	function goPage(review_id){
-		window.location="mywrite2.jsp?review_id=" + review_id; 
-	}//게시물 아이디를 파라메터로 같이 넘기기!!!
-	</script>
+function goPage(review_id){
+	window.location="myreplyshow.jsp?review_id=" + review_id; 
+}//게시물 아이디를 파라메터로 같이 넘기기!!!
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -33,7 +33,8 @@
 			<tr>
 				<td>review_id</td>
 				<td>user_id</td>
-				<td>제목</td>
+				<td>content</td>
+				<td>comment_id</td>
 			</tr>
 	<% 
 		Class.forName("com.mysql.jdbc.Driver");
@@ -44,20 +45,21 @@
 		String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 		String dbUser = "mvtest";
 		String dbPassword = "mv541830";
-		String subject = "";
+		String content = "";
 		String user_id = "";
-		
+		String comment_id="";
 		try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		int result = 0;
 
 		String review_id = "";
 		user_id  = "";
-		subject = "";
+		content = "";
+		comment_id="";
 		request.setCharacterEncoding("utf-8");
 		String id = (String) session.getAttribute("id"); //사용자 아이디
 		System.out.println(id);
-		stmt = conn.prepareStatement("SELECT REVIEW_ID, USER_ID, SUBJECT FROM REVIEW_BOARD WHERE USER_ID = ?");
+		stmt = conn.prepareStatement("SELECT REVIEW_ID, USER_ID, COMMENT_ID,CONTENT FROM REPLY WHERE USER_ID = ?");
 		stmt.setString(1, id);
 		rs = stmt.executeQuery();
 		// 수행
@@ -65,7 +67,8 @@
 			out.print("<tr>");
 			out.print("<td>"+rs.getString("review_id")+"</td>"); 
 			out.print("<td>"+rs.getString("user_id")+"</td>");
-			out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
+			out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("content") + "</td>");
+			out.print("<td>"+rs.getString("comment_id")+"</td>");
 			out.print("</tr>");
 		}
 	} catch (SQLException e) {
