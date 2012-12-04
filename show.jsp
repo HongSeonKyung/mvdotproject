@@ -1,4 +1,4 @@
-<%@page import="com.sun.xml.internal.txw2.Document"%>
+
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.ResultSet"%>
@@ -97,7 +97,7 @@ function addPoint(){
 				out.print("<div>" + rs2.getString("nickname") + starString + ": " + rs2.getString("content") + "</div>");
 				out.print("<div>" + rs2.getString("time") + "</div>");
 			}
-	
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

@@ -60,7 +60,7 @@
 	<%		
 	session.invalidate();	
 	%>
-		로그아웃 되었습니다.
+	
 <div id="wrap">
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
@@ -78,7 +78,7 @@
  	<%}else{ %>
  	<div>
  		<div class="alert alert-success">
- 		사용자 정보를 삭제하였습니다. 
+ 		사용자 정보를 삭제하였습니다. 자동 로그아웃 되었습니다.
  	</div>
  	<%}%>
  	</div>
