@@ -16,10 +16,12 @@
 	String dbUser = "mvtest";
 	String dbPassword = "mv541830";
 	
+		
 	String review_id = null;
 	
 	try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+	
 		if (conn != null) {
 			int result = 0;
 			request.setCharacterEncoding("utf-8");
@@ -36,6 +38,7 @@
 					"ORDER BY review_id DESC");
 			rs = stmt.executeQuery();
 		}
+		
 %>
 <!DOCTYPE html>
 <html>
@@ -48,7 +51,9 @@
 	function goPage(review_id){
 		window.location="masterboardshow.jsp?review_id=" + review_id; 
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
-
+	function del(review_id){ 
+		window.location.href("boardremoved.jsp?review_id="+review_id); 
+	 }
 	</script>
 </head>
 <body>
@@ -71,7 +76,7 @@
 			<tbody>
 			<thead>
 			<tr>
-				<th>선택</th>
+				<th>삭제</th>
 				<th>공감수</th>
 				<th>추천별점</th>
 				<th>제목</th>
@@ -91,7 +96,7 @@
 							starString+="☆";
 						}
 						out.print("<tr>");
-						 %> <td><input type="checkbox" name="choice" /></td><%
+						%><td><input type="button" value="삭제" onClick="del('<%=rs.getString("review_id") %>');"></td><%
 						out.print("<td>" + rs.getString("vote_point") + "</td>");
 						out.print("<td>" + starString + "(" + rs.getDouble("star_avg") + ")" + "</td>");
 						out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
