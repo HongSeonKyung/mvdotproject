@@ -1,9 +1,84 @@
 @charset "utf-8";
 /* CSS Document */
 #wrap{width:960px;margin: 0 auto;}
+#top_left {
+	text-align: left;
+}
+#top_right {
+	text-align: right;
+	padding: 0;
+}
+/*슬라이드쇼*/
+#slideshow {
+	margin:0 auto;
+	width:960px;
+	height:263px;
+	background:transparent url(images/bg_slideshow.jpg) repeat-x 0 0 ;
+	overflow:auto; 
+	position:relative;
+}
+#slideshow #slidesContainer {
+  overflow:auto; /* allow scrollbar */
+}
+#slideshow #slidesContainer .slide {
+  margin:0 auto;
+  width:960px; /* reduce by 20 pixels of #slidesContainer to avoid horizontal scroll */
+  height:263px;
+}
+.control {
+  display:block;
+  width:39px;
+  height:263px;
+  text-indent:-10000px;
+  position:absolute;
+  cursor: pointer;
+}
+#leftControl {
+  top:0;
+  left:0;
+  background:transparent url(images/control_left.jpg) no-repeat 0 0;
+}
+#rightControl {
+  top:0;
+  right:0;
+  background:transparent url(images/control_right.jpg) no-repeat 0 0;
+}
+
+* {
+  margin:0;
+  padding:0;
+  font:normal 11px Verdana, Geneva, sans-serif;
+}
+
+.slide p img {
+  float:right;
+  margin:0px;
+  width:960px;
+  height:263px;
+}
+
+#slideshow {position: absolute;  z-index : 1}
+#search {position: absolute; left: 600px; top: 240px ; z-index : 2 ;width:400;height:30;}
+/* menubar 스타일~*/
+#menuBar #navbar{width:960px;height:30px; background-color:  #6F83D6;} 
+#menuBar #navbar ul{margin:5; padding:0;}
+#menuBar #navbar ul li{float:left; list-style-type: none;}
+#menuBar #navbar ul li a{
+		color: #000; background-color:#66A1D2;
+		display:block;
+		text-align:center;
+		padding:5px 0px;
+		width: 120px;
+		margin-right:1px;
+		text-decoration:none;
+}
+#menuBar #navbar ul li a:hover{background-color:#7373D9;}
+
+
+
 #header{background-color: #B2EBF4; height: 263px;margin:0;}
 #main{background-color: #B2EBF4; height: 500px;margin:0px 0 10px 0;}
-#footer{background-color:#d5dde2; color:#888; text-align:center; font-size: 11px; padding:10px;}
+#footer{background-color:#d5dde2; color:#888; text-align:center; font-size: 11px; padding:20px;}
 #top .btn{
   background-color: hsl(67, 10%, 50%) !important;
   background-repeat: repeat-x;
