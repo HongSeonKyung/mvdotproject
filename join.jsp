@@ -1,14 +1,12 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>   
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>회원가입 페이지</title>
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="temp.css" type="text/css" rel="stylesheet"/>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+			<jsp:include page="top.jsp">
+ 			<jsp:param name="current" value="top"/>
+ 			</jsp:include>
+ 			<jsp:include page="menubar.jsp">
+ 			<jsp:param name="current" value="menubar"/>
+ 			</jsp:include>
+ 
 	<script type="text/javascript">
 	function checkPwd(){
 		if (frm.pwd.value != frm.pwdchk.value){
@@ -29,16 +27,8 @@
 		w=window.open("idcheck.jsp?id=" +id,"", "width=300,height=150"); 
 	 } 
 	</script>
-	
-</head>
-<body>
-<div id = "wrap">
-			<jsp:include page="top.jsp">
- 			<jsp:param name="current" value="top"/>
- 			</jsp:include>
- 			<jsp:include page="menubar.jsp">
- 			<jsp:param name="current" value="menubar"/>
- 			</jsp:include>
+
+
   <div class="container">
     <div>
 		 <h3>회원 가입</h3>
