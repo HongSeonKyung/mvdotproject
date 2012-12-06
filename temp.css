@@ -59,25 +59,10 @@
 
 #slideshow {position: absolute;  z-index : 1}
 #search {position: absolute; left: 600px; top: 240px ; z-index : 2 ;width:400;height:30;}
-/* menubar 스타일~*/
-#menuBar #navbar{width:960px;height:30px; background-color:  #6F83D6;} 
-#menuBar #navbar ul{margin:5; padding:0;}
-#menuBar #navbar ul li{float:left; list-style-type: none;}
-#menuBar #navbar ul li a{
-		color: #000; background-color:#66A1D2;
-		display:block;
-		text-align:center;
-		padding:5px 0px;
-		width: 120px;
-		margin-right:1px;
-		text-decoration:none;
-}
-#menuBar #navbar ul li a:hover{background-color:#7373D9;}
 
 
-
-#header{background-color: #B2EBF4; height: 263px;margin:0;}
-#main{background-color: #B2EBF4; height: 500px;margin:0px 0 10px 0;}
+#header{background-color: #898c72; height: 263px;margin:0;}
+#main{background-color: #898; height: 500px;margin:0px 0 10px 0;}
 #footer{background-color:#d5dde2; color:#888; text-align:center; font-size: 11px; padding:20px;}
 #top .btn{
   background-color: hsl(67, 10%, 50%) !important;

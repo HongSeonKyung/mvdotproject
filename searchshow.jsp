@@ -68,14 +68,14 @@
 		</div>
 
 	<div id="main">	
-		<table border="1">
+		<table border="1" class="table table-striped">
 			<tbody>
 			<tr>
-				<td>공감수</td>
-				<td>추천별점</td>
-				<td>제목</td>
-				<td>조회수</td>
-				<td>날짜</td>
+				<td><strong>공감수</strong></td>
+				<td><strong>추천별점</strong></td>
+				<td><strong>제목</strong></td>
+				<td><strong>조회수</strong></td>
+				<td><strong>날짜</strong></td>
 			</tr>
 				<%
 					while (rs.next()) {

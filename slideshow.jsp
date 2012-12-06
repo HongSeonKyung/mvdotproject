@@ -54,7 +54,15 @@ $(document).ready(function(){
     </div>
   </div>
   <div id="search" style="z-index:2">
-  <form action="searchshow.jsp" id="searchfrm" method="post">
-				 <input type="text" class="span2" name="keyword" id="keyword"/>
-				<button type="submit" class="btn" >Search</button></form>
+  
+  
+  <form class="form-search" action="searchshow.jsp" id="searchfrm" method="post">
+  <div class="input-append">
+    <input type="text" class="span2 search-query" name="keyword" id="keyword">
+    <button type="submit" class="btn">Search</button>
   </div>
+  
+</form>
+
+</div>
+		
