@@ -1,20 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*"  import="java.sql.*" %>
 <%
-  //--------------------------------------
-  // 현재 소스 코드의 문제점 및 해결책
-	//    1. 매번 DB를 접속하고 DB 접속 코드들이 흩어져있음
-	//       --> DBCP의 Connection Pooling과 JNDI Lookup 활용
-	//    2. O-O 적이지 못하다. (모듈화, 클래스화 부재)  
-	//       --> Java Bean 이용
-	//    3. JSP 코드에 Java 코드가 너무 많아 유지/관리 어려움 
-	//       --> JSTL과 Servlet을 이용 MVC 처리
-	//    4. XSS에 대한 방어 부족
-	//       --> JSTL의 <c:out> 활용
-  //--------------------------------------
-
-  // DB 접속을 위한 준비
-	
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
@@ -42,11 +28,9 @@
 	<title>회원 목록</title>	
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script type="text/javascript">
-		 function mblgo(){ 
-				window.location.href("masterboardlist.jsp"); 
-			 }
-		 function mulgo(){ 
-				window.location.href("masteruserlist.jsp"); 
+
+		 function del(id){ 
+				window.location.href("userremoved.jsp?id="+id); 
 			 }
  </script>
 </head>
@@ -61,8 +45,8 @@
  			</jsp:include>
  
 	 		 <div id="mastermenubar">
-	 	<a class="btn btn-large btn-primary" type="button" onClick="mblgo();" >게시글 관리</a>
-	 	<a class="btn btn-large btn-primary" type="button" onClick="mulgo();" >회원 관리</a>
+	 <a href="masterboardlist.jsp"class="btn" type="button">게시글 관리</a>
+ 	<a href="masteruserlist.jsp" class="btn" type="button" >회원 관리</a>
 	 	 	</div>
   	<div class="container">
  	<%
@@ -97,10 +81,11 @@
 				</div>
  			</div>
  		</div>
+ 		
 		<table class="table table-bordered table-stripped">
 			<thead>
 				<tr>
-				<th>선택</th>
+				<th>삭제</th>
 				<th>id</th>	
 				<th>name</th>	
 				<th>nickname</th>	
@@ -114,7 +99,7 @@
 		while(rs.next()){
 		%>
 				<tr>
-				<td><input type="checkbox" ></td>
+				<td><input type="button" value="삭제" onClick="del('<%=rs.getString("id") %>');"></td>
 				<td><%=rs.getString("id") %></td>	
 					<td><%=rs.getString("name") %></td>	
 					<td><%=rs.getString("nickname") %></td>	
@@ -124,6 +109,8 @@
 			<%} %>
 			</tbody>
 		</table>
+		
+		
 
 
 		<div class="pagination pagination-centered">

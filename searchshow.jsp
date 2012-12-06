@@ -23,8 +23,8 @@
 		if (conn != null) {
 			int result = 0;
 			request.setCharacterEncoding("utf-8");
-			String id = (String) session.getAttribute("id"); //사용자 아이디
-			review_id = request.getParameter("review_id");
+			String keyword = request.getParameter("keyword");
+			System.out.println(keyword);
 			//review_board에서 글을 가져오고 최신글이 맨 위에 있게 배치
 			stmt = conn.prepareStatement("SELECT R.review_id, (SELECT nickname FROM users WHERE id=R.user_id) nickname, " + 
 					"R.subject, COUNT(DISTINCT V.user_id) vote_point, R.vote_cnt, IFNULL(AVG(S.star_point),0) star_avg, "+
@@ -32,18 +32,27 @@
 					"FROM review_board R " +
 					"LEFT JOIN star_points S ON R.review_id=S.review_id " + 
 					"LEFT JOIN vote V ON R.review_id=V.review_id " + 
-					
+					"WHERE SUBJECT LIKE ? "+
 					"GROUP BY R.review_id " +
 					"ORDER BY review_id DESC");
+			stmt.setString(1, "%"+keyword+"%");
 			rs = stmt.executeQuery();
 		}
 %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>검색결과</title>
+	<link href="temp.css" type="text/css" rel="stylesheet"/>
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script type="text/javascript">
 	function goPage(review_id){
 		window.location="show.jsp?review_id=" + review_id; 
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
 	</script>
-
+</head>
+<body>
 		<table border="1">
 			<tbody>
 			<tr>
@@ -94,3 +103,5 @@
 				%>
 		</tbody>
 	</table>	
+</body>
+</html>

@@ -48,12 +48,7 @@
 	function goPage(review_id){
 		window.location="masterboardshow.jsp?review_id=" + review_id; 
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
-	 function mblgo(){ 
-			window.location.href("masterboardlist.jsp"); 
-		 }
-	 function mulgo(){ 
-			window.location.href("masteruserlist.jsp"); 
-		 }
+
 	</script>
 </head>
 <body>
@@ -66,8 +61,8 @@
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
   <div id="mastermenubar">
-	 	<a class="btn btn-large btn-primary" type="button" onClick="mblgo();" >게시글 관리</a>
-	 	<a class="btn btn-large btn-primary" type="button" onClick="mulgo();" >회원 관리</a>
+	 	<a href="masterboardlist.jsp"class="btn" type="button">게시글 관리</a>
+ 	<a href="masteruserlist.jsp" class="btn" type="button" >회원 관리</a>
 	 	 	</div>
 <div class="container">
 
