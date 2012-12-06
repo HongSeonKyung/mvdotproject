@@ -79,12 +79,20 @@ function addPoint(){
 		
 	</div>
 	<%
-			while (rs2.next()) {
-				
-				//댓글 출력 
-				out.print("<div>" + rs2.getString("nickname") +  ": " + rs2.getString("content") + "</div>");
-				out.print("<div>" + rs2.getString("time") + "</div>");
-			}
+	while (rs2.next()) {
+		String starString = "";
+		int i =0;
+		//별점 보이게 하기
+		for( i=0;i<rs2.getInt("stars");i++){
+			starString += "★";
+		}
+		for(;i<5;i++){
+			starString+="☆";
+		}
+		//댓글 출력 
+		out.print("<div>" + rs2.getString("nickname") + starString + ": " + rs2.getString("content") + "</div>");
+		out.print("<div>" + rs2.getString("time") + "</div>");
+	}
 	
 		} catch (SQLException e) {
 			e.printStackTrace();

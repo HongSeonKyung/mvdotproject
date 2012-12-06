@@ -53,6 +53,21 @@
 	</script>
 </head>
 <body>
+		<jsp:include page="top.jsp">
+		<jsp:param name="current" value="top" />
+		</jsp:include>
+		<div id="header">
+			<jsp:include page="slideshow.jsp">
+				<jsp:param name="current" value="slide" />
+			</jsp:include>
+		</div>
+		<div id="menuBar">
+			<jsp:include page="menubar.jsp">
+				<jsp:param name="current" value="menubar" />
+			</jsp:include>
+		</div>
+
+	<div id="main">	
 		<table border="1">
 			<tbody>
 			<tr>
@@ -102,6 +117,8 @@
 					}	
 				%>
 		</tbody>
-	</table>	
+	</table>
+	</div>	
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
