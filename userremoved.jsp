@@ -64,7 +64,8 @@
 
  	<div>
  		<div class="alert alert-success">
- 		사용자 정보를 삭제하였습니다. 
+ 		사용자 정보를 삭제하였습니다.
+ 		<a href="masteruserlist.jsp" >목록으로</a> 
  	</div>
  	
  	</div>
