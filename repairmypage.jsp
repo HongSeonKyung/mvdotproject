@@ -98,6 +98,7 @@
  <li class="active"><a href ="repairmypage.jsp?id<%=id%>">수정</a></li>
   <li><a href ="delete2.jsp?id">탈퇴</a></li>
   <li><a href ="mywrite.jsp?id<%=id%>">내가 쓴 글 확인하기</a></li>
+   <li  ><a href ="myreply.jsp?id<%=id%>">내가 쓴 댓글 확인하기</a></li>
   </ul>
  			
   <div class="container">
