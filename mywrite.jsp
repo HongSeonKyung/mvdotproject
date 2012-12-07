@@ -32,7 +32,8 @@
 		String dbPassword = "mv541830";
 		String subject = "";
 		String user_id = "";
-		
+		String vote_cnt="";
+		String writetime="";
 		try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		int result = 0;
@@ -40,10 +41,12 @@
 		String review_id = "";
 		user_id  = "";
 		subject = "";
+		vote_cnt="";
+		writetime="";
 		request.setCharacterEncoding("utf-8");
 		String id = (String) session.getAttribute("id"); //사용자 아이디
 		System.out.println(id);
-		stmt = conn.prepareStatement("SELECT REVIEW_ID, USER_ID, SUBJECT FROM REVIEW_BOARD WHERE USER_ID = ?");
+		stmt = conn.prepareStatement("SELECT REVIEW_ID, USER_ID, SUBJECT,VOTE_CNT,WRITETIME FROM REVIEW_BOARD WHERE USER_ID = ?");
 		stmt.setString(1, id);
 		rs = stmt.executeQuery();
 		// 수행
@@ -53,33 +56,34 @@
 		</jsp:include>
 		<jsp:include page="menubar.jsp">
 	<jsp:param name="current" value="menubar"/>
+		
 		</jsp:include>
-		
-		
-		 <ul class="nav nav-tabs">
+	<ul class="nav nav-tabs">
   <li><a href="mypage.jsp">마이페이지</a></li>
- <li> <a href ="repairmypage.jsp?id<%=id%>">수정</a></li>
-  <li><a href ="delete2.jsp?id">탈퇴</a></li>
-  <li class="active"><a href ="mywrite.jsp?id<%=id%>">내가 쓴 글 확인하기</a></li>
-   <li  ><a href ="myreply.jsp?id<%=id%>">내가 쓴 댓글 확인하기</a></li>
+ 	<li> <a href ="repairmypage.jsp?id<%=id%>">수정</a></li>
+  <li><a href ="delete2.jsp?id">탈퇴</a></li>   
+  <li class="active"><a href ="mywrite.jsp?id<%=id%>">작성한 글</a></li>
+  <li><a href ="myreply.jsp?id<%=id%>">작성한 댓글</a></li>
   </ul>
 		
-		
 		<table border="1">
-			<tbody>
-			<tr>
-				<td>review_id</td>
-				<td>user_id</td>
+		<tbody>
+			<tr> 
+				<td>순서</td>
 				<td>제목</td>
+				<td>조회수</td>
+				<td>날짜</td>
 			</tr>
-	<% 
+			<% 
 	 while(rs.next()) {
-			out.print("<tr>");
-			out.print("<td>"+rs.getString("review_id")+"</td>"); 
-			out.print("<td>"+rs.getString("user_id")+"</td>");
-			out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
-			out.print("</tr>");
-		}
+		 	out.print("<tr>");
+		 	out.print("<td><ol><li>");
+		 	out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
+			out.print("<td>" + rs.getString("vote_cnt") + "</td>");
+			out.print("<td>" + rs.getString("writetime") + "</td>");
+			out.print("</li>");
+			out.print("</ol></td></tr>");
+		}  
 	} catch (SQLException e) {
 		e.printStackTrace();
 	} finally {
@@ -100,9 +104,8 @@
 			}
 	}
 %>
-</tbody>
-		</table>
-
-	<jsp:include page="footer.jsp"></jsp:include>
+	</tbody>
+</table>
+<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>
