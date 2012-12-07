@@ -30,6 +30,7 @@
 			String id, facebook_id = null;
 			String dbfacebook_id = null;
 			String nickname = null, password = null;
+			request.setCharacterEncoding("utf-8");
 			id = request.getParameter("id");
 			facebook_id = request.getParameter("facebook_id");
 			stmt = conn

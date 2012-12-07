@@ -26,8 +26,8 @@
 	List<String> errorMsg = new ArrayList<String>();
 	int result = 0;
 	
-	if(userid == null || userid.trim().length() == 0){
-		errorMsg.add("아이디를 반드시 입력해주세요.");
+	if(userid == null || userid.trim().length() < 5 ||userid.trim().length()>20){
+		errorMsg.add("아이디를 다시 입력해주세요.");
 	}
 	
 	if(pwd == null || pwd.trim().length() < 6){
