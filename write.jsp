@@ -1,6 +1,5 @@
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -8,7 +7,6 @@
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = null;
 	PreparedStatement stmt = null;
-	ResultSet rs = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
@@ -16,19 +14,15 @@
 	try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		if (conn != null) {
-			int result = 0;
 			request.setCharacterEncoding("utf-8");
-			String id = (String) session.getAttribute("id"); //사용자 아이디
 			String subject = request.getParameter("subject");
 			String content = request.getParameter("content");
-			String sql = "INSERT INTO REVIEW_BOARD(user_id, subject, content, writetime, vote_cnt) " + "VALUES(?, ?, ?, NOW(), 0)";
-			System.out.println(sql);
-			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, id);
+			stmt = conn.prepareStatement("INSERT INTO REVIEW_BOARD(user_id, subject, content, writetime, vote_cnt) " + "VALUES(?, ?, ?, NOW(), 0)");
+			stmt.setString(1, (String) session.getAttribute("id"));
 			stmt.setString(2, subject);
 			stmt.setString(3, content);
 
-			result = stmt.executeUpdate();
+			stmt.executeUpdate();
 		}
 %>
 <!DOCTYPE html>
@@ -46,11 +40,6 @@
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
 			if (stmt != null)
 				try {
 					stmt.close();
