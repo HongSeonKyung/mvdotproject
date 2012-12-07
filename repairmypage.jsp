@@ -86,13 +86,20 @@
 	
 </head>
 <body>
-<div id = "wrap">
 			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
  			<jsp:include page="menubar.jsp">
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
+ 			
+ 			<ul class="nav nav-tabs">
+  <li><a href="mypage.jsp">마이페이지</a></li>
+ <li class="active"><a href ="repairmypage.jsp?id<%=id%>">수정</a></li>
+  <li><a href ="delete2.jsp?id">탈퇴</a></li>
+  <li><a href ="mywrite.jsp?id<%=id%>">내가 쓴 글 확인하기</a></li>
+  </ul>
+ 			
   <div class="container">
     <div>
 		 <h3>수정</h3>
@@ -156,7 +163,6 @@
   </div>
   <hr><br>
 	<jsp:include page="footer.jsp"></jsp:include>
-</div>
 </body>
 </html>
 

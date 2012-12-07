@@ -14,7 +14,6 @@
 	
 </head>
 <body>
-<div id="wrap">
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
@@ -23,17 +22,17 @@
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
  			
- <div id="findmenuBar">
-			<ul>
+ 
+			<ul class="nav nav-tabs">
 			<li><a href="idfind.jsp" >아이디 찾기</a></li>
-			 <li><a href="pwdfind.jsp" class="selected">비밀번호 찾기</a></li>
+			 <li class="active"><a href="pwdfind.jsp" >비밀번호 찾기</a></li>
 			</ul>	
-</div>
+
 
 <form action="pwdfinder.jsp" method="post">
 	<div >
 		
-			<h1><b>비밀번호  찾기</b></h1><br>
+			<h1>비밀번호  찾기</h1><br>
 			가입하셨던 아이디과 메일주소를 아래에 입력해 주세요.
 			<hr>
 			아이디 : <input type="text" name="id">
@@ -44,5 +43,5 @@
 </form>
  	
 	<jsp:include page="footer.jsp"></jsp:include>
-</div></body>
+</body>
 </html>
