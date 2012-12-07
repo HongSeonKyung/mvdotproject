@@ -61,7 +61,7 @@ function delectmyreply(){
   	<li><a href ="mywrite.jsp?id<%=id%>">작성한 글</a></li>
   	<li class="active"><a href ="myreply.jsp?id<%=id%>">작성한 댓글</a></li>
   </ul>
-<table border="1">
+<table class="table table-striped">
 			<tbody>
 			<tr>
 				<td>id</td>
@@ -78,8 +78,9 @@ function delectmyreply(){
 		<td>
 				<form action="deletemyreply.jsp" method="post">
 					<input type="hidden" name="comment_id" value='<%=comment_id%>'>			
-					<input type="hidden" name="review_id" value='<%=review_id%>'>			
-					<input type="submit" name="delete" value="삭제" style="cursor: hand;" onclick='javascript:deletemyreply()'>
+					<input type="hidden" name="review_id" value='<%=review_id%>'>	
+					<button type="submit" class="btn btn-primary" style="cursor: hand;" onclick='javascript:deletemyreply()'>
+					삭제</button>
 				</form>
 		</td>
 	</tr>

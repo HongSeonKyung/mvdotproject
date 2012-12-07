@@ -67,9 +67,8 @@ function delectclick(){
 		<div id="buttons">
 	
 			<input type="hidden" name="review_id" value='<%=review_id%>'>
-			<input type="submit" name="change" value="수정" style="cursor: hand;">
-			<input type="button" name="cancel" value="삭제" style="cursor: hand;" onclick='javascript:delectclick()'>
-
+			<button type="submit" class="btn btn-primary" value="수정" style="cursor: hand;">수정</button>
+			<input type="button" class ="btn btn-primary" name="cancel" value="삭제" style="cursor: hand;" onclick='javascript:delectclick()'>
 			</div>
 		</form>
 	</div>

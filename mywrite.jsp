@@ -66,7 +66,7 @@
   <li><a href ="myreply.jsp?id<%=id%>">작성한 댓글</a></li>
   </ul>
 		
-		<table border="1">
+		<table class="table table-striped">
 		<tbody>
 			<tr> 
 				<td>순서</td>
@@ -76,13 +76,11 @@
 			</tr>
 			<% 
 	 while(rs.next()) {
-		 	out.print("<tr>");
-		 	out.print("<td><ol><li>");
+		 	out.print("<tr><td>");
 		 	out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
 			out.print("<td>" + rs.getString("vote_cnt") + "</td>");
 			out.print("<td>" + rs.getString("writetime") + "</td>");
-			out.print("</li>");
-			out.print("</ol></td></tr>");
+			out.print("</td></tr>");
 		}  
 	} catch (SQLException e) {
 		e.printStackTrace();
@@ -104,7 +102,7 @@
 			}
 	}
 %>
-	</tbody>
+</tbody>
 </table>
 <jsp:include page="footer.jsp"></jsp:include>
 	</body>
