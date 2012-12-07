@@ -5,7 +5,32 @@
 <%@page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% 
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
 
+		String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
+		String dbUser = "mvtest";
+		String dbPassword = "mv541830";
+		String content = "";
+		String user_id = "";
+		String comment_id="";
+		String review_id = null;
+		try {
+		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+
+		review_id = "";
+		user_id  = "";
+		content = "";
+		comment_id="";
+		request.setCharacterEncoding("utf-8");
+		String id = (String) session.getAttribute("id");
+		stmt = conn.prepareStatement("SELECT REVIEW_ID, USER_ID, COMMENT_ID,CONTENT FROM REPLY WHERE USER_ID = ?");
+		stmt.setString(1, id);
+		rs = stmt.executeQuery();
+		// 수행%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +40,8 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-function goPage(review_id){
-	window.location="myreplyshow.jsp?review_id=" + review_id; 
+function delectmyreply(){
+	alert("정말 삭제하시겠습니까?");
 }//게시물 아이디를 파라메터로 같이 넘기기!!!
 </script>
 </head>
@@ -31,45 +56,27 @@ function goPage(review_id){
 		<table border="1">
 			<tbody>
 			<tr>
-				<td>review_id</td>
-				<td>user_id</td>
+				<td>id</td>
 				<td>content</td>
-				<td>comment_id</td>
-			</tr>
-	<% 
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-
-		String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
-		String dbUser = "mvtest";
-		String dbPassword = "mv541830";
-		String content = "";
-		String user_id = "";
-		String comment_id="";
-		try {
-		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		int result = 0;
-
-		String review_id = "";
-		user_id  = "";
-		content = "";
-		comment_id="";
-		request.setCharacterEncoding("utf-8");
-		String id = (String) session.getAttribute("id"); //사용자 아이디
-		System.out.println(id);
-		stmt = conn.prepareStatement("SELECT REVIEW_ID, USER_ID, COMMENT_ID,CONTENT FROM REPLY WHERE USER_ID = ?");
-		stmt.setString(1, id);
-		rs = stmt.executeQuery();
-		// 수행
+				<td></td>
+	<%
 	 while(rs.next()) {
 			out.print("<tr>");
-			out.print("<td>"+rs.getString("review_id")+"</td>"); 
+			review_id = rs.getString("review_id");
 			out.print("<td>"+rs.getString("user_id")+"</td>");
-			out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("content") + "</td>");
-			out.print("<td>"+rs.getString("comment_id")+"</td>");
-			out.print("</tr>");
+			out.print("<td>" + rs.getString("content") + "</td>");
+			comment_id = rs.getString("comment_id");
+	%>
+		<td>
+				<form action="deletemyreply.jsp" method="post">
+					<input type="hidden" name="comment_id" value='<%=comment_id%>'>			
+					<input type="hidden" name="review_id" value='<%=review_id%>'>			
+					<input type="submit" name="delete" value="삭제" style="cursor: hand;" onclick='javascript:deletemyreply()'>
+				</form>
+		</td>
+	</tr>
+	<%
+		out.print("</tr>");
 		}
 	} catch (SQLException e) {
 		e.printStackTrace();

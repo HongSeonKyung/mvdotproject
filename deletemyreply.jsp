@@ -19,15 +19,11 @@
 	try{
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		request.setCharacterEncoding("utf-8");
-
+		String comment_id = request.getParameter("comment_id");		
 		review_id = request.getParameter("review_id");
-		String user_id = request.getParameter("user_id");
-		String content = request.getParameter("content");
-		String comment_id = request.getParameter("comment_id");
 		
-		stmt = conn.prepareStatement("DELETE FROM reply WHERE review_id=?");
-		stmt.setInt(1, Integer.parseInt(review_id));
-		
+		stmt = conn.prepareStatement("DELETE FROM reply WHERE comment_id=?");
+		stmt.setInt(1, Integer.parseInt(comment_id));
 		stmt.executeUpdate();
 	} catch (SQLException e){
 		e.printStackTrace();
