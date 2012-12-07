@@ -29,7 +29,7 @@
 			review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
 			id = (String)session.getAttribute("id"); //로그인된 아이디를 가져오기!!
 			//클릭한 게시글의 아이디로 제목, 내용, 날짜를 가져온다.
-			stmt = conn.prepareStatement("SELECT user_id, subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT user_id, subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time, (SELECT nickname FROM users WHERE id=user_id) nickname FROM REVIEW_BOARD "
 							+ "WHERE review_id=?"); 
 			stmt.setInt(1, Integer.parseInt(review_id));//게시물 아이디를 설정한다.
 			rs = stmt.executeQuery();
@@ -102,13 +102,14 @@ function loginAlert() {
 		<%
 			while (rs.next()) {
 				user_id = rs.getString("user_id");	
-				out.print("<div id='submit'>" + rs.getString("subject") + "</div>");
+				out.print("<div id='submit'> 제목 : " + rs.getString("subject") + "</div>");
+				out.print("<div> 작성자 :"  + rs.getString("nickname") + "</div>");
 		%>
 		<div id="write_style">
 			<div class="image"></div>
 			<div class="information"></div>
 		</div>
-		<%
+		<%	
 					out.print("<div id='text'>" + rs.getString("content") + "</div>");
 					out.print("<div>" + rs.getString("time") + "</div>");
 				}
@@ -154,7 +155,7 @@ function loginAlert() {
 						<input type="submit" name="delete" value="삭제" style="cursor: hand;" onclick='javascript:delectreply()'>
 					</form>
 	<%
-					}
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
