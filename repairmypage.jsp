@@ -81,7 +81,9 @@
 	function returnPage(){
 		window.location="main.jsp"
 	}
-
+	function goPage(){
+		window.location="mypage.jsp"
+	}
 	</script>
 	
 </head>
@@ -93,12 +95,12 @@
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
  			
- 			<ul class="nav nav-tabs">
+ <ul class="nav nav-tabs">
   <li><a href="mypage.jsp">마이페이지</a></li>
- <li class="active"><a href ="repairmypage.jsp?id<%=id%>">수정</a></li>
-  <li><a href ="delete2.jsp?id">탈퇴</a></li>
-  <li><a href ="mywrite.jsp?id<%=id%>">내가 쓴 글 확인하기</a></li>
-   <li  ><a href ="myreply.jsp?id<%=id%>">내가 쓴 댓글 확인하기</a></li>
+ 	<li class="active"> <a href ="repairmypage.jsp?id<%=id%>">수정</a></li>
+  <li><a href ="delete2.jsp?id">탈퇴</a></li>   
+  <li><a href ="mywrite.jsp?id<%=id%>">작성한 글</a></li>
+   <li><a href ="myreply.jsp?id<%=id%>">작성한 댓글</a></li>
   </ul>
  			
   <div class="container">
@@ -152,8 +154,8 @@
 				</tr>				
  				<tr>        
  					<th class="button" colspan="2">
- 							<input type="submit" value="수정" > 
- 							<input type="button" value="취소" onclick="history.back()">
+ 							<button type="submit" class="btn btn-primary">수정</button>
+ 							<button type="submit" class="btn btn-primary" onclick="javascript:goPage()">취소</button>
  				</th>
  				</tr>
  				</tbody>
