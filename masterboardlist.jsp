@@ -67,21 +67,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시글 목록</title>
-
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript">
+	<meta charset="UTF-8">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript">
 	function goPage(review_id) {
 		window.location = "masterboardshow.jsp?review_id=" + review_id;
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
 	function del(review_id) {
-		window.location.href("boardremoved.jsp?review_id=" + review_id);
+		window.location.href = "boardremoved.jsp?review_id=" + review_id;
 	}
 </script>
 </head>
-<body>
-	<div id="wrap">
+<body>	
 		<jsp:include page="top.jsp">
 			<jsp:param name="current" value="top" />
 		</jsp:include>
@@ -207,6 +204,6 @@
 			</div>
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
-	</div>
+
 </body>
 </html>
