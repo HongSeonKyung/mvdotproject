@@ -31,7 +31,7 @@
 <div id = "wrap">
 	<div id="top">
 		<div id="top_left">
-			<img src="images/logo_top.png" alt="website Logo" />
+			<img src="images/mvdotlogo.jpg" alt="website Logo" />
 		</div>
 		<div id="top_right">
 			<%
@@ -67,8 +67,5 @@
 				}
 				}
 			%>
-
-
-
 		</div>
 	</div>
