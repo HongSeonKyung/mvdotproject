@@ -43,17 +43,17 @@
 		window.location="show.jsp?review_id=" + review_id; 
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
 	</script>
-
-		<table class="table table-striped" border="1">
-			<tbody>
+	<div id="main-content">
+	<table class="table table-hover">
+		<tbody>
 			<tr>
 				<td><strong>공감수</strong></td>
 				<td><strong>추천별점</strong></td>
 				<td><strong>제목</strong></td>
 				<td><strong>조회수</strong></td>
-				<td><strong>날짜</strong></td>
+				<td><strong>작성날짜</strong></td>
 			</tr>
-				<%
+							<%
 					while (rs.next()) {
 						String starString = "";
 						int i =0;
@@ -67,7 +67,7 @@
 						out.print("<tr>");
 						out.print("<td>" + rs.getString("vote_point") + "</td>");
 						out.print("<td>" + starString + "(" + rs.getDouble("star_avg") + ")" + "</td>");
-						out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
+						out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");'>" + rs.getString("subject") + "</td>");
 						out.print("<td>" + rs.getString("vote_cnt") + "</td>");
 						out.print("<td>" + rs.getString("time") + "</td>");
 						out.print("</tr>");
@@ -94,3 +94,4 @@
 				%>
 		</tbody>
 	</table>	
+</div>

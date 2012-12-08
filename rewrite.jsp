@@ -57,6 +57,14 @@
 <title>게시글 수정</title>
 </head>
 <body>
+	<jsp:include page="top.jsp">
+		<jsp:param name="current" value="top" />
+	</jsp:include>
+		<div id="menuBar">
+		<jsp:include page="menubar.jsp">
+			<jsp:param name="current" value="menubar" />
+		</jsp:include>
+		</div>
 <div id="main_content">
 <form action="change.jsp" method="post">
 	<div id="subject">
@@ -72,14 +80,14 @@
 			</div>
 	</div>
 	<div id="text">
-		<textarea id="write" rows="15px" cols="85px" name="content">
+		<textarea id="write" rows="3" cols="30px" name="content">
 		<%=content %>
 		</textarea>
 	</div>
 	<div id="buttons">
 		<input type="hidden" name="review_id" value='<%=review_id%>'>
-		<input type="submit" value="수정">
-		<input type="button" value="취소" onclick="history.back();"> 
+		<input type="submit" class="btn btn-success" value="수정">
+		<input type="button" class="btn" value="취소" onclick="history.back();"> 
 	</div>
 </form>
 </div>

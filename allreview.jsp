@@ -42,13 +42,13 @@
 		</jsp:include>
 	</div>
 	<div id="main">
-		<form action="write.html" method=post>
+		<form action="writereview.jsp" method=post>
 			<div>
-				<input name="board_write" value="글작성"
+				<input name="board_write" value="글작성" class="btn btn-large"
 					<%//만약 로그인이 안되어 있으면 writeAlert을 호출한다.
 				if (disabled) {%>
 					type="button" onclick="javascript:writeAlert()"
-					<%} else {//로그인이 되어있으면 write.html로 이동%> type="submit" <%}%>>
+					<%} else {//로그인이 되어있으면 write.html로 이동%> type="submit"<%}%>>
 			</div>
 		</form>
 		<jsp:include page="boardlist.jsp">

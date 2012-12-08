@@ -114,20 +114,20 @@ function loginAlert() {
 					out.print("<div>" + rs.getString("time") + "</div>");
 				}
 		%>
-		<form action="rewrite.jsp" method="post">
+		<form action="rewrite.jsp" method="post" class="form-actions">
 		<div id="buttons">
 		<% if(addpoint != true) {
 		%>
-			<input type="button" name="vote" value="공감하기" style="cursor: hand;" onclick="javascript:addPoint()"/>
+			<input type="button" class="btn btn-inverse" name="vote" value="공감하기" style="cursor: hand;" onclick="javascript:addPoint()"/>
 		<%} else { %>
-			<input type="button" name="vote" value="공감취소" style="cursor: hand;" onclick="javascript:addPoint()"/>
+			<input type="button" class="btn btn-inverse" name="vote" value="공감취소" style="cursor: hand;" onclick="javascript:addPoint()"/>
 		<%} %>
 		<% //내가 쓴 글이면 수정과 취소 버튼 보이게하기...
 			if(user_id.equals(id)){ 
 			%>
-				<input type="hidden" name="review_id" value='<%=review_id%>'>
-				<input type="submit" name="change" value="수정" style="cursor: point; cursor: hand;">
-				<input type="button" name="cancel" value="삭제" style="cursor: hand;" onclick='javascript:delectclick()'>
+				<input type="hidden" name="review_id" value='<%=review_id%>' >
+				<input type="submit" name="change" value="수정" class="btn btn-primary">
+				<input type="button" name="cancel" value="삭제" class="btn" onclick='javascript:delectclick()'>
 		<%} %>
 		</div>
 		</form>
