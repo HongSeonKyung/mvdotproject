@@ -98,7 +98,7 @@ function loginAlert() {
 	<jsp:include page="menubar.jsp">
 		<jsp:param name="current" value="menubar" />
 	</jsp:include>
-	<div id="main_content">
+	<div id="main-content">
 		<%
 			while (rs.next()) {
 				user_id = rs.getString("user_id");	
@@ -120,7 +120,7 @@ function loginAlert() {
 		%>
 			<input type="button" class="btn btn-inverse" name="vote" value="공감하기" style="cursor: hand;" onclick="javascript:addPoint()"/>
 		<%} else { %>
-			<input type="button" class="btn btn-inverse" name="vote" value="공감취소" style="cursor: hand;" onclick="javascript:addPoint()"/>
+			<input type="button" class="btn btn-danger" name="vote" value="공감취소" style="cursor: hand;" onclick="javascript:addPoint()"/>
 		<%} %>
 		<% //내가 쓴 글이면 수정과 취소 버튼 보이게하기...
 			if(user_id.equals(id)){ 
@@ -131,7 +131,6 @@ function loginAlert() {
 		<%} %>
 		</div>
 		</form>
-	</div>
 	<% // 작성된 댓글 프린트 하기.
 			while (rs2.next()) {
 				String starString = "";
@@ -144,18 +143,24 @@ function loginAlert() {
 					starString+="☆";
 				}
 				//댓글 출력 
-				out.print("<div>" + rs2.getString("nickname") + starString + ": " + rs2.getString("content") + "</div>");
-				out.print("<div>" + rs2.getString("time") + "</div>");
-				user_id = rs2.getString("user_id");
 				comment_id = rs2.getString("comment_id");
+				out.print("<div class='reply-actions'>");
+				out.print("<span class='reply'>"+ "<b>" + rs2.getString("nickname") + "</b>" + "</span>"); 
+				out.print("<span class='reply'>" +starString + "</sapn>"); 
+				out.print("<span class='reply'>" + rs2.getString("content") + "</span>");
+				user_id = rs2.getString("user_id");
 				if(user_id.equals(id)){	%>
-					<form action="deletereply.jsp" method="post">
-						<input type="hidden" name="comment_id" value='<%=comment_id%>'>			
-						<input type="hidden" name="review_id" value='<%=review_id%>'>			
-						<input type="submit" name="delete" value="삭제" style="cursor: hand;" onclick='javascript:delectreply()'>
-					</form>
-	<%
+				<form class='del-btn' action="deletereply.jsp" method="post">
+					<input type="hidden" name="comment_id" value='<%=comment_id%>'>			
+					<input type="hidden" name="review_id" value='<%=review_id%>'>			
+					<input type="submit" name="delete" value="삭제" class="btn btn-danger" onclick='javascript:delectreply()'>
+				</form>
+				<%
 				}
+					out.print("<div class='time'>");
+					out.print("<span class='reply'>" + rs2.getString("time") + "</span>");
+				  out.print("</div>");
+					out.print("</div>");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -192,7 +197,7 @@ function loginAlert() {
 				}
 		}
 	%>
-	<div>
+	<div class="input-append">
 		<form action="comment.jsp" method="post">
 			<select name="star" size=1 class="stars" <%
 			if(disabled){
@@ -217,20 +222,23 @@ function loginAlert() {
 				repldisabled = true;
 			}
 			%>
-			<input type="text" name="reply" size="80px"  > 
+			<input type="text" class="span2" id="appendedInputButton" name="reply"> 
 			<input <%
 			if(repldisabled){%>
-				type="button" onclick="javascript:loginAlert()" value="댓글"
+				type="button" class="btn" onclick="javascript:loginAlert()" value="댓글"
 			<%} else {%>
-				type="submit" name="reply_register" value="댓글">
+				type="submit" class="btn btn-success" name="reply_register" value="댓글">
 			<%} %> 
 			<input type="hidden" name="review_id" value="<%=review_id%>">
 		</form>
 	</div>
-	<div>
+	<div class="btn btn-link">
 		<a href="allreview.jsp">목록으로</a>
 	</div>
-	<jsp:include page="footer.jsp"></jsp:include>
 </div>	
+<div>
+	<jsp:include page="footer.jsp"></jsp:include>	
+</div>
+</div>
 </body>
 </html>
