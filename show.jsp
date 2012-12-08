@@ -29,7 +29,7 @@
 			review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
 			id = (String)session.getAttribute("id"); //로그인된 아이디를 가져오기!!
 			//클릭한 게시글의 아이디로 제목, 내용, 날짜를 가져온다.
-			stmt = conn.prepareStatement("SELECT user_id, subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time, (SELECT nickname FROM users WHERE id=user_id) nickname FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT user_id, subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time, (SELECT nickname FROM users WHERE id=user_id) nickname, movie_title, movie_pubdate, movie_director, actor, movie_story, movie_img FROM REVIEW_BOARD "
 							+ "WHERE review_id=?"); 
 			stmt.setInt(1, Integer.parseInt(review_id));//게시물 아이디를 설정한다.
 			rs = stmt.executeQuery();
@@ -106,8 +106,21 @@ function loginAlert() {
 				out.print("<div> 작성자 :"  + rs.getString("nickname") + "</div>");
 		%>
 		<div id="write_style">
-			<div class="image"></div>
-			<div class="information"></div>
+			<div class="image">
+			<% 
+				out.print("<img id='mov_img' src='" + rs.getString("movie_img") + "'/>");
+			%>
+			</div>
+			<div class="information">
+			<%
+			out.print("<div id='mov_title'>" + rs.getString("movie_title") + "</div>");
+			out.print("<div id='mov_tumbnail'>" + rs.getString("movie_pubdate") + "</div>");
+			out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
+			out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
+			out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
+			
+			%>
+			</div>
 		</div>
 		<%	
 					out.print("<div id='text'>" + rs.getString("content") + "</div>");
