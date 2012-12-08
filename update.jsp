@@ -94,6 +94,7 @@
 		<link href="temp.css" type="text/css" rel="stylesheet"/>
 	 <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript"></script>
 </head>
 <body>
 <div id = "wrap">
@@ -120,9 +121,9 @@
  	<div>
  		<b><%=name%></b> 님 수정되었습니다.
  	</div>
- 	 	<div>
- 		<a href="main.jsp">목록</a>
- 		<a href="mypage.jsp">마이페이지</a>
+ 	<div>
+ 		<a href="main.jsp" class="btn btn-mini btn-primary">목록</a>
+ 		<a href="mypage.jsp" class="btn btn-mini btn-primary">마이페이지</a>
  	</div>
  	<%} %>
  </div>

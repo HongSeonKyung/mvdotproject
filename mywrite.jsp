@@ -34,6 +34,8 @@
 		String user_id = "";
 		String vote_cnt="";
 		String writetime="";
+		int number=1;
+		
 		try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		int result = 0;
@@ -65,22 +67,23 @@
   <li class="active"><a href ="mywrite.jsp?id<%=id%>">작성한 글</a></li>
   <li><a href ="myreply.jsp?id<%=id%>">작성한 댓글</a></li>
   </ul>
-		
 		<table class="table table-striped">
 		<tbody>
-			<tr> 
-				<td>순서</td>
-				<td>제목</td>
-				<td>조회수</td>
-				<td>날짜</td>
-			</tr>
-			<% 
+		<tr> 
+			<td>순서</td>
+			<td>제목</td>
+			<td>조회수</td>
+			<td>날짜</td>
+		</tr>
+	<% 
 	 while(rs.next()) {
-		 	out.print("<tr><td>");
+		 	out.print("<tr>");
+		 	out.print("<td>"+number+"</td>");
 		 	out.print("<td onclick='javascript:goPage("+rs.getInt("review_id")+");' style='cursor:hand;'>" + rs.getString("subject") + "</td>");
 			out.print("<td>" + rs.getString("vote_cnt") + "</td>");
 			out.print("<td>" + rs.getString("writetime") + "</td>");
-			out.print("</td></tr>");
+			out.print("</tr>");
+			number++;
 		}  
 	} catch (SQLException e) {
 		e.printStackTrace();
