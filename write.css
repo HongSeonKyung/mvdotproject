@@ -4,14 +4,13 @@
 	background-color: #fff;
 	margin: 5px;
 	padding: 10px;
-	border: 4px double black;
+	border: 1px solid #eaeaea
 }
 #subject{
 	width: 580px;
 	margin: 10px;
 	padding: 8px;
 	background-color: #fff;
-
 }
 #write_left{
 	
