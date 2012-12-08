@@ -51,7 +51,7 @@
 				<td><strong>추천별점</strong></td>
 				<td><strong>제목</strong></td>
 				<td><strong>조회수</strong></td>
-				<td><strong>작성날짜</strong></td>
+				<td><strong>작성일</strong></td>
 			</tr>
 							<%
 					while (rs.next()) {
