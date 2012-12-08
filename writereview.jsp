@@ -36,7 +36,7 @@
 		<textarea id="write" rows="3" name="content" cols="30px">
 		</textarea>
 	</div>
-	<div id="buttons">
+	<div class="buttons">
 		<input type="submit" class="btn btn-success" value="등록">
 		<input type="button" class="btn" value="취소" onclick="history.back();"> 
 	</div>
