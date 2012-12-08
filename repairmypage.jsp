@@ -155,7 +155,7 @@
  				<tr>        
  					<th class="button" colspan="2">
  							<button type="submit" class="btn btn-primary">수정</button>
- 							<button type="submit" class="btn btn-primary" onclick="javascript:goPage()">취소</button>
+ 							<a href ="mypage.jsp" class="btn btn-danger">취소</a>
  				</th>
  				</tr>
  				</tbody>
