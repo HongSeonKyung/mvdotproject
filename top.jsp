@@ -49,8 +49,9 @@
 			<%
 				out.print("mater 님");
 			%>
-			<a class="btn" type="button" onClick="showlogout();"><i
-				class="icon-off"></i>로그아웃</a> <a href="master.jsp" class="btn"
+			<a class="btn" type="button" onClick="showlogout();">
+			<i class="icon-off"></i>로그아웃</a> 
+				<a href="master.jsp" class="btn"
 				type="button"><i class="icon-user"></i> 관리자 페이지 </a>
 			<%
 				} else {
@@ -59,13 +60,16 @@
 			<%
 				out.print("<b>" + session.getAttribute("id") + "</b> 님");
 			%>
-			<a class="btn" type="button" onClick="showlogout();"><i
-				class="icon-off"></i>로그아웃</a> <a href="mypage.jsp" class="btn"
-				type="button"><i class="icon-user"></i> my page </a>
+			<a class="btn btn-danger" type="button" onClick="showlogout();"><i
+				class="icon-off"></i>로그아웃</a> 
+				<a href="mypage.jsp" class="btn" type="button"><i class="icon-user"></i> my page </a>
 
 			<%
 				}
 				}
 			%>
+
+
+
 		</div>
 	</div>

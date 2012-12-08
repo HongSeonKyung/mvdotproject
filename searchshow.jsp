@@ -67,8 +67,9 @@
 			</jsp:include>
 		</div>
 
-	<div id="main">	
-		<table border="1" class="table table-striped">
+	<div id="main-content">
+	<h4>검색 결과</h4>
+	<table class="table table-hover">
 			<tbody>
 			<tr>
 				<td><strong>공감수</strong></td>

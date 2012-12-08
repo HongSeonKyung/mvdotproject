@@ -58,7 +58,7 @@ $(document).ready(function(){
   
   <form class="form-search" action="searchshow.jsp" id="searchfrm" method="post">
   <div class="input-append">
-    <input type="text" class="span2 search-query" name="keyword" id="keyword">
+    <input type="text" class="span2 search-query" name="keyword" id="keyword" >
     <button type="submit" class="btn">Search</button>
   </div>
   
