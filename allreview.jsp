@@ -66,8 +66,5 @@
 				}
 		}
 	%>
-	<jsp:include page="footer.jsp">
-		<jsp:param name="current" value="footer" />
-		</jsp:include>
 	</body>
 </html>
