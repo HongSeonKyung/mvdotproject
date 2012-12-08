@@ -8,8 +8,8 @@
 			<div class="nav-collapse collapse navbar-inverse-collapse">
 				<ul class="nav">
 					
-					<li class="active"><a href="allreview.jsp">모든리뷰</a></li>
-					<li class="active"><a href="nowreview.jsp" >현재상영작리뷰</a></li>	
+					<li class="active"><a href="allreview.jsp">모든영화리뷰</a></li>
+					<li class="active"><a href="nowreview.jsp" >이번달영화리뷰</a></li>	
 				</ul>
 			</div>
 			
