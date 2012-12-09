@@ -28,7 +28,6 @@ ResultSet rs = null;
 			review_id = request.getParameter("review_id");
 			
 			 Calendar now = Calendar.getInstance();
-
 			 String month = now.get(Calendar.YEAR) + "." + now.get(Calendar.MONTH)
 			 ;
 			//review_board에서 글을 가져오고 최신글이 맨 위에 있게 배치
