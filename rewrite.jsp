@@ -22,7 +22,7 @@
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			review_id = request.getParameter("review_id");
-			stmt = conn.prepareStatement("SELECT user_id, subject, content FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT user_id, subject, content, movie_title, movie_pubdate, movie_director, actor, movie_story, movie_img FROM REVIEW_BOARD "
 					+ "WHERE review_id=?");
 			stmt.setInt(1, Integer.parseInt(review_id));
 			rs = stmt.executeQuery();
@@ -30,26 +30,7 @@
 			if(rs.next()){
 				subject = rs.getString("subject");
 				content = rs.getString("content");
-			}
-	} catch (SQLException e){
-		e.printStackTrace();
-	} finally {
-		if (rs != null)
-			try {
-				rs.close();
-			} catch (SQLException e) {
-			}
-		if (stmt != null)
-			try {
-				stmt.close();
-			} catch (SQLException e) {
-			}
-		if (conn != null)
-			try {
-				conn.close();
-			} catch (SQLException e) {
-			}
-	}%> 
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,22 +53,48 @@
 	</div>
 	<div id="write_style">
 			<div class="image">
-			영화 이미지 <br/>
-				<input type="button" name="movie-search" value="영화검색">
+			<% 
+				out.print("<img id='mov_img' src='" + rs.getString("movie_img")  + "'/>");
+			%>
 			</div>
 			<div class="information">
-			영화 배우, 감독
+			<%
+				out.print("<div id='mov_title'>" + rs.getString("movie_title") + "</div>");
+				out.print("<div id='mov_tumbnail'>" + rs.getString("movie_pubdate") + "</div>");
+				out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
+				out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
+				out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
+			%>
 			</div>
 	</div>
 	<div id="text">
-		<textarea id="write" rows="3" cols="30px" name="content">
-		<%=content %>
+		<textarea id="write" rows="3" name="content" cols="30px"><%=content %>
 		</textarea>
 	</div>
 	<div id="buttons">
 		<input type="hidden" name="review_id" value='<%=review_id%>'>
 		<input type="submit" class="btn btn-success" value="수정">
 		<input type="button" class="btn" value="취소" onclick="history.back();"> 
+		<%			}
+	} catch (SQLException e){
+		e.printStackTrace();
+	} finally {
+		if (rs != null)
+			try {
+				rs.close();
+			} catch (SQLException e) {
+			}
+		if (stmt != null)
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+			}
+		if (conn != null)
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+	}%> 
 	</div>
 </form>
 </div>
