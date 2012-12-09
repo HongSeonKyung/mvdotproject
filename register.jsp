@@ -46,10 +46,6 @@
 		errorMsg.add("페이스북 아이디를 반드시 입력해주세요.");
 	}
 	
-	if(facebook_address == null || facebook_address.trim().length() == 0){
-		errorMsg.add("페이스북 주소를 반드시 입력해주세요.");
-	}
-	
 	if(errorMsg.size() == 0){
 		try{
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
@@ -60,8 +56,6 @@
 			stmt.setString(3, name);
 			stmt.setString(4, nickname);
 			stmt.setString(5, facebook_id);
-			stmt.setString(6, facebook_address);
-			
 			result = stmt.executeUpdate();
 			if(result != 1){
 				errorMsg.add("등록에 실패하였습니다.");
