@@ -46,10 +46,6 @@
 		errorMsg.add("페이스북 아이디를 반드시 입력해주세요.");
 	}
 	
-	if(facebook_address == null || facebook_address.trim().length() == 0){
-		errorMsg.add("페이스북 주소를 반드시 입력해주세요.");
-	}
-	
 	if(errorMsg.size() == 0){
 		try{
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
