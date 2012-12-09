@@ -33,17 +33,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Mvdot Home</title>
 	<script type="text/javascript">
 	function goPage(review_id){
 		window.location="show.jsp?review_id=" + review_id; 
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
 	</script>
-<link href="temp.css" type="text/css" rel="stylesheet"/>
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-</head>
-<body>
-	<div id = "wrap">
 		<jsp:include page="top.jsp">
  		<jsp:param name="current" value="top"/>
  		</jsp:include>

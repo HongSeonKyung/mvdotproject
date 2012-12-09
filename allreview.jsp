@@ -26,11 +26,13 @@
 			}
 		}
 %>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
 	</jsp:include>
-
 	<div id="header">
 		<jsp:include page="slideshow.jsp">
 			<jsp:param name="current" value="top" />

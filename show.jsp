@@ -14,6 +14,8 @@
 	String user_id = null;
 	String id = null;
 	String comment_id = null;
+	String movie_title = null;
+	String movie_img = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
@@ -60,13 +62,14 @@
 			}
 		}
 %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>show review</title>
-<link href="write.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta property="og:title" content="<%=movie_title%>" />
+<meta property="og:description" content="description" />
+<meta property="og:image" content="<%=movie_img%>" />
+	<script type="text/javascript">
 function addPoint(){
 	//이미공감을 했을때
 	<%if(addpoint){%>
@@ -81,17 +84,7 @@ function delectclick(){
 	alert("정말 글을 삭제하시겠습니까?");
 	window.location = "deletewrite.jsp?review_id=" + <%=review_id%>;
 }	
-function delectreply(){
-	alert("정말 댓글을 삭제하시겠습니까?");
-}	
-function loginAlert() {
-	window.alert("로그인후 이용하실 수 있습니다.");
-	window.open("login.jsp", "", "width=80, height=100,top=200px,left=400");
-}
 </script>
-</head>
-<body>
-<div id="wrap">
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
 	</jsp:include>
@@ -99,25 +92,28 @@ function loginAlert() {
 		<jsp:param name="current" value="menubar" />
 	</jsp:include>
 	<div id="main-content">
+	
 		<%
 			while (rs.next()) {
-				user_id = rs.getString("user_id");	
+				user_id = rs.getString("user_id");
+				movie_title = rs.getString("movie_title");
+				movie_img = rs.getString("movie_img");
 				out.print("<div id='text'> 제목 : " + rs.getString("subject") + "</div>");
 				out.print("<div id='text'> 작성자 :" + "<b>" + rs.getString("nickname") +"</b>" + "</div>");
-		%>
+				%>
 		<div id="write_style">
 			<div class="image">
 			<% 
-				out.print("<img id='mov_img' src='" + rs.getString("movie_img") + "'/>");
+				out.print("<img id='mov_img' src='" + movie_img  + "'/>");
 			%>
 			</div>
 			<div class="information">
 			<%
-			out.print("<div id='mov_title'>" + rs.getString("movie_title") + "</div>");
-			out.print("<div id='mov_tumbnail'>" + rs.getString("movie_pubdate") + "</div>");
-			out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
-			out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
-			out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
+				out.print("<div id='mov_title'>" + movie_title + "</div>");
+				out.print("<div id='mov_tumbnail'>" + rs.getString("movie_pubdate") + "</div>");
+				out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
+				out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
+				out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
 			
 			%>
 			</div>
@@ -134,6 +130,8 @@ function loginAlert() {
 		<%} else { %>
 			<input type="button" class="btn btn-danger" name="vote" value="공감취소" style="cursor: hand;" onclick="javascript:addPoint()"/>
 		<%} %>
+		
+			<input type="button" class="btn btn-primary" name="share" value="F공유" onclick='javascript:openFacebookShare()'>
 		<% //내가 쓴 글이면 수정과 취소 버튼 보이게하기...
 			if(user_id.equals(id)){ 
 			%>
@@ -248,9 +246,7 @@ function loginAlert() {
 		<a href="allreview.jsp">목록으로</a>
 	</div>
 </div>	
-<div>
 	<jsp:include page="footer.jsp"></jsp:include>	
-</div>
 </div>
 </body>
 </html>
