@@ -56,8 +56,6 @@
 			stmt.setString(3, name);
 			stmt.setString(4, nickname);
 			stmt.setString(5, facebook_id);
-			stmt.setString(6, facebook_address);
-			
 			result = stmt.executeUpdate();
 			if(result != 1){
 				errorMsg.add("등록에 실패하였습니다.");

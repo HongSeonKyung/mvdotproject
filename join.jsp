@@ -77,13 +77,6 @@
 						<p style="font-size:9pt; color:red;">페이스북주소는 비밀번호 변경이나 찾기 등에 사용됩니다.</p>
 					</td>
 				</tr>
- 				<tr>
-					<th><label for="name">페이스북 주소</label></th>
-					<td>
-						<input type="text" name="facebook_address" value=""/>
-						<p style="font-size:9pt; color:red;">홈페이지가 있을 경우 입력해주세요.</p>
-					</td>
-				</tr>				
  				<tr>        
  					<th class="button" colspan="2">
  					 <input type="submit" class="btn" value="가입" >
