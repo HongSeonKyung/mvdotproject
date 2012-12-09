@@ -52,8 +52,7 @@ function delectclick(){
 	</jsp:include>
 	<div id="main_content">
 		<%
-			while (rs.next()) {
-				user_id = rs.getString("user_id");	
+			while (rs.next()) {	
 				out.print("<div id='text'> 제목 : " + rs.getString("subject") + "</div>");
 		%>
 		<div id="write_style">
@@ -69,7 +68,6 @@ function delectclick(){
 			out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
 			out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
 			out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
-			
 			%>
 			</div>
 		</div>
