@@ -35,6 +35,7 @@
 <link href="write.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+<div id="wrap">
 	<div id="top">
 		<div id="top_left">
 			<img src="images/mvdotlogo.jpg" alt="website Logo" />
@@ -77,4 +78,5 @@
 
 
 
+		</div>
 		</div>
