@@ -76,8 +76,6 @@
 		window.location.href = "boardremoved.jsp?review_id=" + review_id;
 	}
 </script>
-</head>
-<body>	
 		<jsp:include page="top.jsp">
 			<jsp:param name="current" value="top" />
 		</jsp:include>

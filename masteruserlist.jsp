@@ -32,8 +32,6 @@
 				window.location.href("userremoved.jsp?id="+id); 
 			 }
  </script>
-</head>
-<body>
 <div id = "wrap">
 <jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>

@@ -5,14 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>관리자 페이지</title>
-</head>
-<body>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	
-</head>
-<body>
-<div id = "wrap">
+
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
@@ -28,6 +24,5 @@
  	 <br><br><br>
  	 
  <jsp:include page="footer.jsp"></jsp:include>
- </div>
 </body>
 </html>
