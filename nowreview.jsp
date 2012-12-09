@@ -48,6 +48,11 @@ ResultSet rs = null;
 <html>
 <head>
 <meta charset="UTF-8">
+	function goPage(review_id){
+		window.location="show.jsp?review_id=" + review_id; 
+	}//게시물 아이디를 파라메터로 같이 넘기기!!!
+	</script>
+	<script type="text/javascript">
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
 	</jsp:include>
