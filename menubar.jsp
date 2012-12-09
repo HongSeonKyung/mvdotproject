@@ -5,16 +5,15 @@
 			<div class="navbar-inner">
 			<div class="container">
 			<a class="brand" href="main.jsp">HOME</a>
-			<div class="nav-collapse collapse navbar-inverse-collapse">
+		<div class="nav-collapse collapse navbar-inverse-collapse">
 				<ul class="nav">
 					
-					<li class="active"><a href="allreview.jsp">모든영화리뷰</a></li>
-					<li class="active"><a href="nowreview.jsp" >이번달영화리뷰</a></li>	
+					<li ><a href="allreview.jsp">모든영화리뷰</a></li>
+					<li><a href="nowreview.jsp" >이번달영화리뷰</a></li>	
 				</ul>
+		
 			</div>
-			
-			</div>
-			
-			</div>
-		</div>
+		</div>		
+</div>
+</div>
 		
