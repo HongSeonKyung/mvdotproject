@@ -11,9 +11,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	</script>
-	
-</head>
-<body>
+
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
