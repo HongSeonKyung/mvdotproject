@@ -22,7 +22,7 @@
 		if (conn != null) {
 			request.setCharacterEncoding("utf-8");
 			review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
-			stmt = conn.prepareStatement("SELECT subject, content FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT subject, content,movie_title, movie_pubdate, movie_director, actor, movie_story, movie_img FROM REVIEW_BOARD "
 							+ "WHERE review_id=?"); //클릭한 게시글의 아이디로 제목, 내용를 가져온다.
 			System.out.println(review_id);
 			stmt.setInt(1, Integer.parseInt(review_id));
@@ -52,16 +52,28 @@ function delectclick(){
 	</jsp:include>
 	<div id="main_content">
 		<%
-			while (rs.next()) {
-					out.print("<div id='submit'>" + rs.getString("subject") + "</div>");
+			while (rs.next()) {	
+				out.print("<div id='text'> 제목 : " + rs.getString("subject") + "</div>");
 		%>
 		<div id="write_style">
-			<div class="image"></div>
-			<div class="information"></div>
+			<div class="image">
+			<% 
+				out.print("<img id='mov_img' src='" + rs.getString("movie_img") + "'/>");
+			%>
+			</div>
+			<div class="information">
+			<%
+			out.print("<div id='mov_title'>" + rs.getString("movie_title") + "</div>");
+			out.print("<div id='mov_tumbnail'>" + rs.getString("movie_pubdate") + "</div>");
+			out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
+			out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
+			out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
+			%>
+			</div>
 		</div>
-		<%
-					out.print("<div id='text'>" + rs.getString("content") + "</div>");
-			}
+			<%	
+					out.print("<div id='text'>" + "<span>" + rs.getString("content") + "</span>" + "</div>");
+				}
 		%>
 			<form action="myrewrite.jsp" method="post">
 		<div id="buttons">
