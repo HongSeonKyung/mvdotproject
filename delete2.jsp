@@ -30,11 +30,10 @@
 		String name="";
 		String nickname="";
 		String facebook_id="";
-		String facebook_address="";
 				try{
 				Class.forName("com.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-				stmt = conn.prepareStatement("SELECT NAME, NICKNAME,FACEBOOK_ID, FACEBOOK_ADDRESS FROM USERS WHERE ID= ?");
+				stmt = conn.prepareStatement("SELECT NAME, NICKNAME,FACEBOOK_ID FROM USERS WHERE ID= ?");
 				stmt.setString(1, id);
 				rs = stmt.executeQuery();
 				if(rs.next()){
@@ -42,7 +41,6 @@
 					name=rs.getString("name");
 					nickname=rs.getString("nickname");
 					facebook_id=rs.getString("facebook_id");
-					facebook_address=rs.getString("facebook_address");
 				}
 			}
 			catch (SQLException e){
@@ -82,7 +80,7 @@
  		<li> <a href ="repairmypage.jsp?id<%=id%>">수정</a></li>
   	<li class="active"><a href ="delete2.jsp?id">탈퇴</a></li>   
   	<li><a href ="mywrite.jsp?id<%=id%>">작성한 글</a></li>
-  	<li><a href ="myreply.jsp?id<%=id%>">작성한 댓글</a></li>
+  	<li><a href ="myreply.jsp?id<%=id%>">작성한 댓글</a></li>`
   </ul>
  <h3>탈퇴하는 이유는 무엇인가요?</h3>
  <div class="form-actions">
@@ -92,7 +90,7 @@
      <input type ="checkbox" value="reason"  id ="delete2">기타<br/>
    </div>
 
- <div class ="form-actions">
+ <div id ="form-actions">
  	<a href ="delete.jsp?id<%=id%>" class="btn btn-primary">탈퇴</a>
  	<a href ="mypage.jsp" class="btn btn-danger">취소</a>
  </div>
