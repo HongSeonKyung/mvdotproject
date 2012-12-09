@@ -68,7 +68,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script type="text/javascript">
 	function goPage(review_id) {
 		window.location = "masterboardshow.jsp?review_id=" + review_id;

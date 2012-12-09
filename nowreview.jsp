@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<div id="wrap">
 		<jsp:include page="top.jsp">
  		<jsp:param name="current" value="top"/>
  		</jsp:include>
@@ -36,5 +37,6 @@
 			<jsp:include page="footer.jsp">
  			<jsp:param name="current" value="footer"/>
  			</jsp:include>
+ </div>
 </body>
 </html>

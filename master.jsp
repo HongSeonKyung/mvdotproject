@@ -7,7 +7,6 @@
 <title>관리자 페이지</title>
 </head>
 <body>
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	
