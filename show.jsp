@@ -136,8 +136,8 @@ function delectclick(){
 			if(user_id.equals(id)){ 
 			%>
 				<input type="hidden" name="review_id" value='<%=review_id%>' >
-				<input type="submit" name="change" value="수정" class="btn btn-primary">
-				<input type="button" name="cancel" value="삭제" class="btn" onclick='javascript:delectclick()'>
+				<input type="submit" name="change" value="수정" class="btn">
+				<input type="button" name="cancel" value="삭제" class="btn btn-danger" onclick='javascript:delectclick()'>
 		<%} %>
 		</div>
 		</form>
