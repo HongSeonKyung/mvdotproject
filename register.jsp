@@ -22,7 +22,6 @@
 	String name = request.getParameter("name");
 	String nickname = request.getParameter("nickname");
 	String facebook_id = request.getParameter("facebook_id");
-	String facebook_address = request.getParameter("facebook_address");
 	List<String> errorMsg = new ArrayList<String>();
 	int result = 0;
 	
@@ -50,7 +49,7 @@
 		try{
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement("INSERT INTO USERS " + 
-			"VALUES(?, ?, ?, ?, ?, ?)");
+			"VALUES(?, ?, ?, ?, ?)");
 			stmt.setString(1, userid);
 			stmt.setString(2, pwd);
 			stmt.setString(3, name);
@@ -74,16 +73,8 @@
 <head>
 <meta charset="UTF-8">
 	<title>회원가입감사</title>
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="temp.css" type="text/css" rel="stylesheet"/>
 	 <script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<style>
-	#login1{text-align:center;}
-	</style>
-</head>
-<body>
-<div id = "wrap">
  <jsp:include page="top.jsp">
  	<jsp:param name="current" value="top"/>
  </jsp:include>
@@ -122,6 +113,5 @@
  	<%} %>
  </div>
 	<jsp:include page="footer.jsp"></jsp:include> 
-</div>
 </body>
 </html>

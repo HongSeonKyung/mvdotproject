@@ -28,18 +28,6 @@
 		var src = "http://www.facebook.com/sharer/sharer.php?u="+ window.location;
 		window.open(src, "", "width=80, height=100,top=200px,left=400");
 	}
-	function openSearchWindow(){
-		window.open("showresult.html","","scrollbars=yes,toolbar=yes,resizable=yes,width=200,height=400,left=300,top=100");
-	}	
-
-	function setMovieData(movieObj) {
-		frm.mov_title.value=document.getElementById("mov_title").innerText = movieObj.title;
-		frm.mov_img.value= document.getElementById("mov_img").src = movieObj.thumbnail;
-		frm.mov_open_info.value= document.getElementById("mov_open_info").innerText = movieObj.open_info;
-		frm.mov_director.value= document.getElementById("mov_director").innerText = movieObj.director;
-		frm.mov_actor.value= document.getElementById("mov_actor").innerText = movieObj.actor;
-		frm.mov_story.value= document.getElementById("mov_story").innerText = movieObj.story;
-	}
 </script>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="temp.css" type="text/css" rel="stylesheet" />
@@ -62,7 +50,7 @@
 				type="button"><i class="icon-star"></i>회원가입 </a>
 			<%
 				} else {
-					if (id.equals("nanhee")) {
+					if (id.equals("master")) {
 			%>
 			<i class="icon-heart"></i>
 			<%
@@ -87,16 +75,8 @@
 				}
 				}
 			%>
-<<<<<<< HEAD
-		</div>
-	</div>
-=======
 
 
 
 		</div>
-<<<<<<< HEAD
->>>>>>> 0a0c9028d7187472ae02a80a12b557c980ad18ec
-=======
 		</div>
->>>>>>> cff2ddd3511d0ed12488d775ea84de75b95a9b02

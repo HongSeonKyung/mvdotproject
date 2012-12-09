@@ -24,8 +24,6 @@
 		w=window.open("idcheck.jsp?id=" +id,"", "width=300,height=150"); 
 	 } 
 	</script>
-</head>
-<body>
 <jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
@@ -83,7 +81,7 @@
  					<th class="button" colspan="2">
  					 <input type="submit" class="btn" value="가입" >
  					 <input type="button" class="btn" value="취소" onclick="history.back()">
- 				</th>
+ 					</th>
  				</tr>
  				</tbody>
  				</table>
