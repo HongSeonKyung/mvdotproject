@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+
+<channel>
+<title><![CDATA[Daum Open API - Search - query : '늑대소년']]></title> 
+<description>Daum Open API search result</description>  
+<generator>Daum Open API :: Search</generator> 
+<totalCount>1</totalCount>  
+<result>10</result> 
+<pageno>1</pageno> 
+<q><![CDATA[늑대소년]]></q> 
+
+		<item>
+				<thumbnail>			
+									<content><![CDATA[http://cfile16.uf.daum.net/C110x160/1528E64F507B6A520528D0]]></content> 									
+									<link/>
+				</thumbnail> 
+				<title>			
+									<content><![CDATA[늑대소년]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetail/moviedetailMain.do?movieId=67118]]></link> 									
+				</title> 
+				<eng_title>			
+									<content/>
+									<link/>
+				</eng_title> 
+				<ogr_title>			
+									<content/>
+									<link/>
+				</ogr_title> 
+				<kword>			
+									<content/>
+									<link/>
+				</kword> 
+				<year>			
+									<content><![CDATA[2012]]></content> 									
+									<link/>
+				</year> 
+				<trailer>			
+									<content><![CDATA[http://i1.search.daumcdn.net/sccimg.search/sccthum/Thum/1R/67118_trailer_38886.jpg]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailVideoView.do?movieId=67118&videoId=38886]]></link> 									
+				</trailer> 
+				<cgv_res>			
+									<content/>
+									<link/>
+				</cgv_res> 
+				<res>			
+									<content/>
+									<link><![CDATA[http://ticket2.movie.daum.net/yes24/default.aspx?m_id=M000039528]]></link> 									
+				</res> 
+				<director>			
+									<content><![CDATA[조성희]]></content> 									
+									<link><![CDATA[http://movie.daum.net/movieperson/Summary.do?personId=162261]]></link> 									
+				</director> 
+				<actor>			
+									<content><![CDATA[송중기]]></content> 									
+									<link><![CDATA[http://movie.daum.net/movieperson/Summary.do?personId=136516]]></link> 									
+									<content><![CDATA[박보영]]></content> 									
+									<link><![CDATA[http://movie.daum.net/movieperson/Summary.do?personId=105244]]></link> 									
+									<content><![CDATA[장영남]]></content> 									
+									<link><![CDATA[http://movie.daum.net/movieperson/Summary.do?personId=95768]]></link> 									
+									<content><![CDATA[유연석]]></content> 									
+									<link><![CDATA[http://movie.daum.net/movieperson/Summary.do?personId=142422]]></link> 									
+				</actor> 
+				<more_actor>			
+									<content/>
+									<link><![CDATA[http://movie.daum.net/moviedetailCastCrew.do?movieId=67118]]></link> 									
+				</more_actor> 
+				<nation>			
+									<content><![CDATA[한국]]></content> 									
+									<link/>
+				</nation> 
+				<genre>			
+									<content><![CDATA[드라마]]></content> 									
+									<link/>
+				</genre> 
+				<open_info>			
+									<content><![CDATA[2012.10.31]]></content> 									
+									<link/>
+									<content><![CDATA[15세이상관람가]]></content> 									
+									<link/>
+									<content><![CDATA[125분]]></content> 									
+									<link/>
+				</open_info> 
+				<homepage>			
+									<content/>
+									<link><![CDATA[http://wolfboy.interest.me]]></link> 									
+				</homepage> 
+				<video_info>			
+									<content><![CDATA[17]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailVideoList.do?movieId=67118]]></link> 									
+				</video_info> 
+				<video>			
+									<content><![CDATA[http://i1.search.daumcdn.net/sccimg.search/sccthum/Thum/1R/67118_trailer_39570.jpg]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailVideoView.do?movieId=67118&videoId=39570]]></link> 									
+				</video> 
+				<photo_info>			
+									<content><![CDATA[124]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailPhotoList.do?movieId=67118]]></link> 									
+				</photo_info> 
+				<photo1>			
+									<content><![CDATA[http://cfile77.uf.daum.net/C93x70/164F76505051768F1B8B9E]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailPhotoView.do?movieId=67118&photoId=816792]]></link> 									
+				</photo1> 
+				<photo2>			
+									<content><![CDATA[http://cfile118.uf.daum.net/C93x70/205851485036C6F603CE6E]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailPhotoView.do?movieId=67118&photoId=808991]]></link> 									
+				</photo2> 
+				<photo3>			
+									<content><![CDATA[http://cfile78.uf.daum.net/C93x70/143A114A504B242C17F7E3]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailPhotoView.do?movieId=67118&photoId=808992]]></link> 									
+				</photo3> 
+				<photo4>			
+									<content><![CDATA[http://cfile19.uf.daum.net/C93x70/135851485036C6FA05C0C3]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailPhotoView.do?movieId=67118&photoId=808993]]></link> 									
+				</photo4> 
+				<photo5>			
+									<content><![CDATA[http://cfile16.uf.daum.net/C93x70/165851485036C6FC0664A9]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailPhotoView.do?movieId=67118&photoId=808994]]></link> 									
+				</photo5> 
+				<grades>			
+									<content><![CDATA[8.6]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=after]]></link> 									
+									<content><![CDATA[3061]]></content> 									
+									<link/>
+				</grades> 
+				<write_grades>			
+									<content/>
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118]]></link> 									
+				</write_grades> 
+				<expect_grades>			
+									<content><![CDATA[8.9]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=before]]></link> 									
+									<content><![CDATA[237]]></content> 									
+									<link/>
+				</expect_grades> 
+				<grade1>			
+									<content><![CDATA[10]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=after]]></link> 									
+									<content><![CDATA[너무 슬프고 재미있었어요.]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=after]]></link> 									
+									<content><![CDATA[2012.12.03]]></content> 									
+									<link/>
+				</grade1> 
+				<grade2>			
+									<content><![CDATA[2]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=after]]></link> 									
+									<content><![CDATA[박보영 예뻐서봤다.]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=after]]></link> 									
+									<content><![CDATA[2012.12.03]]></content> 									
+									<link/>
+				</grade2> 
+				<grade3>			
+									<content><![CDATA[4]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=after]]></link> 									
+									<content><![CDATA[이거 보고 우는사람 전혀 이해안됨]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailNetizenPoint.do?movieId=67118&type=after]]></link> 									
+									<content><![CDATA[2012.12.03]]></content> 									
+									<link/>
+				</grade3> 
+				<category>			
+									<content><![CDATA[일반]]></content> 									
+									<link/>
+				</category> 
+				<news_info>			
+									<content><![CDATA[1079]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailArticleList.do?movieId=67118&type=all]]></link> 									
+				</news_info> 
+				<news1>			
+									<content><![CDATA[티브이데일리]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailArticleRead.do?movieId=67118&articleId=1714960&type=all]]></link> 									
+									<content><![CDATA[한국 영화 최단기간 관객 1억명 돌파 '축제 분위기']]></content> 									
+									<link/>
+									<content><![CDATA[2012.12.03]]></content> 									
+									<link/>
+				</news1> 
+				<news2>			
+									<content><![CDATA[스타뉴스]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailArticleRead.do?movieId=67118&articleId=1714941&type=all]]></link> 									
+									<content><![CDATA[2012 한국영화, 올해의 각선미·찰진 욕은?①]]></content> 									
+									<link/>
+									<content><![CDATA[2012.12.03]]></content> 									
+									<link/>
+				</news2> 
+				<news3>			
+									<content><![CDATA[SBS E!]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailArticleRead.do?movieId=67118&articleId=1714948&type=all]]></link> 									
+									<content><![CDATA['늑대소년' 650만 돌파…'미녀는 괴로워' 넘는다]]></content> 									
+									<link/>
+									<content><![CDATA[2012.12.03]]></content> 									
+									<link/>
+				</news3> 
+				<event>			
+									<content/>
+									<link/>
+				</event> 
+				<age_grades>			
+									<content><![CDATA[723]]></content> 									
+									<link/>
+									<content><![CDATA[7.2]]></content> 									
+									<link/>
+									<content><![CDATA[2316]]></content> 									
+									<link/>
+									<content><![CDATA[8.9]]></content> 									
+									<link/>
+									<content><![CDATA[715]]></content> 									
+									<link/>
+									<content><![CDATA[9.5]]></content> 									
+									<link/>
+									<content><![CDATA[768]]></content> 									
+									<link/>
+									<content><![CDATA[8.7]]></content> 									
+									<link/>
+									<content><![CDATA[838]]></content> 									
+									<link/>
+									<content><![CDATA[8.2]]></content> 									
+									<link/>
+									<content><![CDATA[565]]></content> 									
+									<link/>
+									<content><![CDATA[8.2]]></content> 									
+									<link/>
+				</age_grades> 
+				<review_cnt>			
+									<content><![CDATA[42]]></content> 									
+									<link/>
+									<content><![CDATA[8]]></content> 									
+									<link/>
+									<content><![CDATA[5]]></content> 									
+									<link/>
+				</review_cnt> 
+				<story>			
+									<content><![CDATA[체온 46도, 혈액형 판독불가… 세상에 없어야 할 위험한 존재 늑대소년, 운명적 사랑에 빠지다!  요양 차 가족들과 한적한 마을로 이사 간 소녀는 어둠 속에 몸을 숨긴 의문의 늑대소년을 발견한다. 야생의 눈빛으로 사람 같지 않은 행동을 보이는 소년에게 왠지 마음이 쓰이는 소녀는 먹을 것을 보고 기다리는 법, 옷 입는 법, 글을 읽고 쓰는 법 등 소년에게 세상에서 살아가는 방법들을 하나씩 가르쳐준다. 태어나 처음으로 자신을 향해 손을 내밀어준 소녀에게 애틋한 감정이 싹트는 소년. 그러던 어느 날 예기치 못한 위기 속에 소년의 숨겨져 있던 위험한 본성이 드러나고, 소년은 순식간에 마을 사람들에게 두려움과 공포의 대상이 되어버리는데……]]></content> 									
+									<link><![CDATA[http://movie.daum.net/moviedetailStory.do?movieId=67118]]></link> 									
+				</story> 
+				<wiki_name>			
+									<content><![CDATA[늑대소년]]></content> 									
+									<link/>
+				</wiki_name> 
+				<wiki_info>			
+									<content><![CDATA[《늑대소년》 (A werewolf boy송중기·박보영의 '늑대소년', 토론토 국제영화제 공식 초청, 네이버 뉴스, 2012년 8월 16일.)은 2012년에 개봉한 대한민국의 로맨스 영화이다. 1960년대 후반, 대한민국 강원도의 한 산골을 배경으로 하고 있으며, 실험을 통해 생긴 늑대소년이 한 소녀와 만나게 되어 벌어지는 이야기를 다룬 영화이다. 《남매의 집》, 《장례식의 멤버》 등을 찍은 조성희가 감독과 각본을 맡았으며, 송중기와 박보영이 각]]></content> 									
+									<link/>
+				</wiki_info> 
+				<wiki_url>			
+									<content><![CDATA[http://100.daum.net/encyclopedia/view.do?docid=10XX859087]]></content> 									
+									<link/>
+				</wiki_url> 
+				<review>			
+									<content><![CDATA[[늑대소년] 송중기의 매력과 연기력이 영화에 잘 녹아들다]]></content> 									
+									<link><![CDATA[http://bbs.movie.daum.net/gaia/do/movie/detail/read?articleId=215666&bbsId=review1&viewKey=detail&searchValue=1:67118&searchKey=meta]]></link> 									
+									<content><![CDATA[40대 이상 여성들이 꼭 봐야 하는 이유]]></content> 									
+									<link><![CDATA[http://bbs.movie.daum.net/gaia/do/movie/detail/read?articleId=215568&bbsId=review1&viewKey=detail&searchValue=1:67118&searchKey=meta]]></link> 									
+									<content><![CDATA[늑대의 야성이 제거된 개소년과 소녀의 순정만화]]></content> 									
+									<link><![CDATA[http://bbs.movie.daum.net/gaia/do/movie/detail/read?articleId=215487&bbsId=review1&viewKey=detail&searchValue=1:67118&searchKey=meta]]></link> 									
+									<content><![CDATA[★허상을 환상으로 만들어버린 영화]]></content> 									
+									<link><![CDATA[http://bbs.movie.daum.net/gaia/do/movie/detail/read?articleId=215202&bbsId=review1&viewKey=detail&searchValue=1:67118&searchKey=meta]]></link> 									
+									<content><![CDATA[철수야 미안해!]]></content> 									
+									<link><![CDATA[http://bbs.movie.daum.net/gaia/do/movie/detail/read?articleId=215171&bbsId=review1&viewKey=detail&searchValue=1:67118&searchKey=meta]]></link> 									
+				</review> 
+		</item> 
+</channel>

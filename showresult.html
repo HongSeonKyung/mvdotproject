@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function loadSearchedResult() {
+		if (window.XMLHttpRequest)
+			xhttp = new XMLHttpRequest();
+		else
+			xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+		//var addr = "http://apis.daum.net/contents/movie?apikey=61779fa9a1344bd1160a3070c80656ea3222cd68&q=늑대소년";
+		var addr = "./test.xml";
+		xhttp.open("GET",addr, false);
+		xhttp.send();
+		xmlDoc = xhttp.responseXML;
+		printResult(xmlDoc);
+	}
+	function printResult(xmlDoc) {
+		var root = xmlDoc.documentElement;
+		var str = "";
+		
+		var movieItemNodes = root.getElementsByTagName("item");
+		var resultNum = movieItemNodes.length;
+		
+		movieArray = new Array();
+		
+		
+		for ( var i = 0; i < resultNum; i++) {
+			var node = movieItemNodes[i];
+			var title = parseToString(node, "title");
+			var thumbnail = parseToString(node, "thumbnail");
+			var director = parseToString(node, "director");
+			var actor = parseToString(node, "actor");
+			var open_info = parseToString(node, "open_info");
+			var story = parseToString(node, "story");
+			var movieObj = new Object();
+			movieObj.title = title;
+			movieObj.thumbnail = thumbnail;
+			movieObj.director = director;
+			movieObj.actor = actor;
+			movieObj.open_info = open_info;
+			movieObj.story = story;
+			movieArray[i] = movieObj;
+			str+="<div style='cursor:hand;' onclick='selectMovie("+i+")'>";
+			str+="<img src='"+thumbnail+"'/>";
+			str+="<p>제목:"+title+"</p>";
+			str+="<p>감독:"+director+"</p>";
+			str+="<p>주연:"+actor+"</p>";
+			str+="<p>개봉일:"+open_info+"</p></div>";
+
+		}
+
+		document.getElementById("result").innerHTML=str;
+	}
+	
+	function parseToString(node, tagname){
+		var tagnode = node.getElementsByTagName(tagname)[0];
+		var value = tagnode.getElementsByTagName("content")[0].firstChild.nodeValue;
+		if (value==null)
+			return "";
+		else 
+			return value; 	
+	}
+	
+	function selectMovie(index){
+		passMovieDataToOpener(index);
+		window.close();
+	}
+	function passMovieDataToOpener(index){
+		opener.setMovieData(movieArray[index]);
+		//opener.getE('mov_title').innerText = movieArray[index].title;
+	//	opener.frm.mov_img.src = movieArray[index].thumbnail;
+		//opener.frm.mov_open_info.innerText = movieArray[index].open_info;
+	//	opener.frm.mov_director.innerText = movieArray[index].director;
+	//	opener.frm.mov_actor.innerText = movieArray[index].actor;
+	//	opener.frm.mov_story.innerText = movieArray[index].story;
+		
+	}
+</script>
+</head>
+<body>
+
+	<div id="result"></div>
+
+	<input type="button" onclick="loadSearchedResult();" value="검색" />
+
+
+</body>
+</html>
