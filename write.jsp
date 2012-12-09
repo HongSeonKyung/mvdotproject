@@ -36,19 +36,7 @@
 			stmt.setString(9, movie_img);
 			stmt.executeUpdate();
 		}
-%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>write_borad</title>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/bootstrap.min.js"></script>
-</head>
-<body>
-	<%
-		} catch (SQLException e) {
+	} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			if (stmt != null)

@@ -102,8 +102,8 @@ function loginAlert() {
 		<%
 			while (rs.next()) {
 				user_id = rs.getString("user_id");	
-				out.print("<div id='submit'> 제목 : " + rs.getString("subject") + "</div>");
-				out.print("<div> 작성자 :"  + rs.getString("nickname") + "</div>");
+				out.print("<div id='text'> 제목 : " + rs.getString("subject") + "</div>");
+				out.print("<div id='text'> 작성자 :" + "<b>" + rs.getString("nickname") +"</b>" + "</div>");
 		%>
 		<div id="write_style">
 			<div class="image">
@@ -123,8 +123,7 @@ function loginAlert() {
 			</div>
 		</div>
 		<%	
-					out.print("<div id='text'>" + rs.getString("content") + "</div>");
-					out.print("<div>" + rs.getString("time") + "</div>");
+					out.print("<div id='text'>" + "<span>" + rs.getString("content") + "</span>" + "<span>" + rs.getString("time") + "</span>" + "</div>");
 				}
 		%>
 		<form action="rewrite.jsp" method="post" class="form-actions">
