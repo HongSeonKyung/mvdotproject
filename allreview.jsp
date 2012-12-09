@@ -54,8 +54,6 @@
 		</div>		
 </div>
 </div>
-
-
 	</div>
 	<div id="main">
 		<form action="writereview.jsp" method=post>

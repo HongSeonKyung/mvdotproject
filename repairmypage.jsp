@@ -20,6 +20,8 @@
 	String name = "";
 	String nickname = "";
 	String facebook_id = "";
+	String facebook_address = "";
+	
 	String id;
 	try {
 		if(session.getAttribute("id") == null) {
@@ -37,7 +39,7 @@
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
 	 		// 질의 준비
-			stmt = conn.prepareStatement("SELECT PASSWORD,NAME, NICKNAME,FACEBOOK_ID FROM USERS WHERE ID= ?");
+			stmt = conn.prepareStatement("SELECT PASSWORD,NAME, NICKNAME,FACEBOOK_ID, FACEBOOK_ADDRESS FROM USERS WHERE ID= ?");
 		  stmt.setString(1, id);
 			rs = stmt.executeQuery();
 			
@@ -47,6 +49,7 @@
 				name=rs.getString("name");
 				nickname=rs.getString("nickname");
 				facebook_id=rs.getString("facebook_id");
+				facebook_address=rs.getString("facebook_address");
 				}
 		}catch (SQLException e) {
 			errorMsg = "SQL 에러: " + e.getMessage();
@@ -142,6 +145,13 @@
 						<p style="font-size:9pt; color:red;">페이스북주소는 비밀번호 변경이나 찾기 등에 사용됩니다.</p>
 					</td>
 				</tr>
+ 				<tr>
+					<th><label for="name">페이스북 주소</label></th>
+					<td>
+						<input type="text" name="facebook_address" value="<%=facebook_address%>"/>
+						<p style="font-size:9pt; color:red;">홈페이지가 있을 경우 입력해주세요.</p>
+					</td>
+				</tr>				
  				<tr>        
  					<th class="button" colspan="2">
  							<button type="submit" class="btn btn-primary">수정</button>

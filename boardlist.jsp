@@ -43,7 +43,6 @@
 		window.location="show.jsp?review_id=" + review_id; 
 	}//게시물 아이디를 파라메터로 같이 넘기기!!!
 	</script>
-<body>
 	<div id="main-content">
 	<table class="table table-hover">
 		<tbody>
@@ -99,4 +98,3 @@
 <div>
 	<jsp:include page="footer.jsp"></jsp:include>	
 </div>
-</body>

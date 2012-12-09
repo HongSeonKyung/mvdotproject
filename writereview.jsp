@@ -5,23 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시글 작성</title>
-	<link href="write.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript">
-function openSearchWindow(){
-	window.open("showresult.html","","scrollbars=yes,toolbar=yes,resizable=yes,width=200,height=400,left=300,top=100");
-}	
-
-function setMovieData(movieObj) {
-	frm.mov_title.value=document.getElementById("mov_title").innerText = movieObj.title;
-	frm.mov_img.value= document.getElementById("mov_img").src = movieObj.thumbnail;
-	frm.mov_open_info.value= document.getElementById("mov_open_info").innerText = movieObj.open_info;
-	frm.mov_director.value= document.getElementById("mov_director").innerText = movieObj.director;
-	frm.mov_actor.value= document.getElementById("mov_actor").innerText = movieObj.actor;
-	frm.mov_story.value= document.getElementById("mov_story").innerText = movieObj.story;
-}
-</script>
-</head>
-<body>
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
 	</jsp:include>
@@ -30,8 +13,7 @@ function setMovieData(movieObj) {
 			<jsp:param name="current" value="menubar" />
 		</jsp:include>
 		</div>
-<div id="wrap">
-<div id="main_content">
+<div id="main-content">
 <form action="write.jsp" method="post" name="frm">
 	<div id="subject">
 		제목 <input type="text" name="subject" size="85px" placeholder="영화제목을작성해주세요."/>
@@ -54,7 +36,7 @@ function setMovieData(movieObj) {
 			</div>
 		</div>
 	</div>
-	<div id="text">
+	<div >
 		<textarea id="write" rows="3" name="content" cols="30px">
 		</textarea>
 	</div>
@@ -70,9 +52,7 @@ function setMovieData(movieObj) {
 	</div>
 	</form>
 </div>
-	<div>
 	<jsp:include page="footer.jsp"></jsp:include>
-</div>
 </div>
 </body>
 </html>

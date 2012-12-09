@@ -50,6 +50,7 @@
 	
 </head>
 <body onload="refreshParent()">
+<div id="wrap">
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
@@ -67,5 +68,6 @@
  	</div>
 	<jsp:include page="footer.jsp"></jsp:include> 
 </div>
+ </div>
 </body>
 </html>

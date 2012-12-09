@@ -28,7 +28,6 @@
 		if (conn != null) {
 			String name, nickname, dbid = null;
 			String dbname, dbnickname = null;
-			request.setCharacterEncoding("utf-8");
 			name = request.getParameter("name");
 			nickname = request.getParameter("nickname");
 			stmt = conn.prepareStatement("SELECT ID,NICKNAME FROM USERS WHERE NAME= ?");

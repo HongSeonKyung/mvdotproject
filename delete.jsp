@@ -57,14 +57,18 @@
 	
 </head>
 <body onload="refreshParent()">
-	
+	<%		
+	session.invalidate();	
+	%>
+		로그아웃 되었습니다.
+<div id="wrap">
  			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
  			<jsp:include page="menubar.jsp">
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
- 
+ 	</div>
  <div class="container">
  <% if(errorMsg!=null){%>
  <div class="alert alert-error">
@@ -78,12 +82,7 @@
  	</div>
  	<%}%>
  	</div>
- 	<%		
-	session.invalidate();	
-	%>
-		로그아웃 되었습니다.
 	<jsp:include page="footer.jsp"></jsp:include> 
-	
 </div>
 </body>
 </html>

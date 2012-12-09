@@ -24,7 +24,7 @@
 		
 		stmt = conn.prepareStatement("DELETE FROM reply WHERE comment_id=?");
 		stmt.setInt(1, Integer.parseInt(comment_id));
-		stmt.executeUpdate();
+		stmt.executeUpdate();		
 	} catch (SQLException e){
 		e.printStackTrace();
 	} finally{
