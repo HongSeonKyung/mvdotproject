@@ -16,7 +16,15 @@
 	String comment_id = null;
 	String movie_title = null;
 	String movie_img = null;
-
+	String movie_director = null;
+	String actor = null;
+	String pubdate = null;
+	String movie_story = null;
+	String content = null;
+	String subject = null;
+	String nickname = null;
+	String time = null;
+	
 	String dbUrl = "jdbc:mysql://localhost:3306/mvdot";
 	String dbUser = "mvtest";
 	String dbPassword = "mv541830";
@@ -35,6 +43,19 @@
 							+ "WHERE review_id=?"); 
 			stmt.setInt(1, Integer.parseInt(review_id));//게시물 아이디를 설정한다.
 			rs = stmt.executeQuery();
+			while (rs.next()) {
+				user_id = rs.getString("user_id");
+				movie_title = rs.getString("movie_title");
+				movie_img = rs.getString("movie_img");
+				subject = rs.getString("subject");
+				nickname = rs.getString("nickname");
+				pubdate =  rs.getString("movie_pubdate");
+				movie_director = rs.getString("movie_director");
+				actor =  rs.getString("actor") ;
+				movie_story =  rs.getString("movie_story");
+				content = rs.getString("content");
+				time = rs.getString("time");
+			}
 			//조회수를 하나씩 증가시키기
 			stmt = conn.prepareStatement("UPDATE review_board SET vote_cnt= vote_cnt + 1 WHERE review_id= ?");
 			stmt.setInt(1, Integer.parseInt(review_id));
@@ -93,13 +114,9 @@ function delectclick(){
 	</jsp:include>
 	<div id="main-content">
 	
-		<%
-			while (rs.next()) {
-				user_id = rs.getString("user_id");
-				movie_title = rs.getString("movie_title");
-				movie_img = rs.getString("movie_img");
-				out.print("<div id='text'> 제목 : " + rs.getString("subject") + "</div>");
-				out.print("<div id='text'> 작성자 :" + "<b>" + rs.getString("nickname") +"</b>" + "</div>");
+		<%	
+				out.print("<div id='text'> 제목 : " +subject + "</div>");
+				out.print("<div id='text'> 작성자 :" + "<b>" + nickname +"</b>" + "</div>");
 				%>
 		<div id="write_style">
 			<div class="image">
@@ -110,17 +127,16 @@ function delectclick(){
 			<div class="information">
 			<%
 				out.print("<div id='mov_title'>" + movie_title + "</div>");
-				out.print("<div id='mov_tumbnail'>" + rs.getString("movie_pubdate") + "</div>");
-				out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
-				out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
-				out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
-			
+				out.print("<div id='mov_tumbnail'>" + pubdate+ "</div>");
+				out.print("<div id='mov_director'>" + movie_director + "</div>");
+				out.print("<div id='mov_actor'>" +actor + "</div>");
+				out.print("<div id='mov_story'>" + movie_story + "</div>");
 			%>
 			</div>
 		</div>
 		<%	
-					out.print("<div id='text'>" + "<span>" + rs.getString("content") + "</span>" + "<span>" + rs.getString("time") + "</span>" + "</div>");
-				}
+					out.print("<div id='text'>" + "<span>" + content + "</span>" + "<span>" + time + "</span>" + "</div>");
+	
 		%>
 		<form action="rewrite.jsp" method="post" class="form-actions">
 		<div id="buttons">
