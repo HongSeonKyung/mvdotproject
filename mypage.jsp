@@ -87,13 +87,36 @@
   </ul>
  
  <div>
- 	<ol>
- 		<li> 아이디 :<%=id%></li>
- 		<li> 이름 :<%=name%></li>
- 		<li> 닉네임 :<%=nickname%></li>
- 		<li> 페이스북 아이디 :<%=facebook_id %></li>
- 		<li> 페이스북 주소 :<%=facebook_address%></li>
- 	</ol>
+ <table class="table table-bordered">
+ <thead>
+ 	<tr>
+ 		<th></th>
+ 		<th>내 정보</th>
+ 	</tr>
+ 	</thead>
+	 		<tbody>
+	 		<tr>
+	 		<td>아이디 </td>
+	 		<td><%=id%></td>
+	 		</tr>
+	 		<tr>
+	 		<td>이름 </td>
+	 		<td><%=name%></td>
+	 		</tr>
+	 		<tr>
+	 		<td>닉네임</td> 
+	 		<td><%=nickname%></td>
+	 		</tr>
+	 		<tr>
+	 		<td> 페이스북 아이디 </td>
+	 		<td><%=facebook_id %></td>
+	 		</tr>
+	 		<tr>
+	 		<td> 페이스북 주소 </td>
+	 		<td><%=facebook_address%></td>
+	 		</tr>
+ 	</tbody>
+ 	</table>
  </div>
  
  <jsp:include page="footer.jsp"></jsp:include>
