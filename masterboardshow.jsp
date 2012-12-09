@@ -41,8 +41,12 @@
 			
 			
 		}
-%>
-<link href="write.css" type="text/css" rel="stylesheet" />
+%><!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	
+</head>
 <div id="wrap">
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />

@@ -26,7 +26,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>회원 목록</title>	
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script type="text/javascript">
 
 		 function del(id){ 
