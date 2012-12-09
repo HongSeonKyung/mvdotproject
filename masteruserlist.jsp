@@ -87,7 +87,6 @@
 				<th>name</th>	
 				<th>nickname</th>	
 				<th>facebook_id</th>	
-				<th>facebook_address</th>	
 								
 				</tr>
 			</thead>
@@ -101,7 +100,6 @@
 					<td><%=rs.getString("name") %></td>	
 					<td><%=rs.getString("nickname") %></td>	
 						<td><%=rs.getString("facebook_id") %></td>
-						<td><%=rs.getString("facebook_address") %></td>					
 				</tr>
 			<%} %>
 			</tbody>
