@@ -47,6 +47,7 @@
 <link href="write.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+<div id="wrap">
 	<div id="top">
 		<div id="top_left">
 			<img src="images/mvdotlogo.jpg" alt="website Logo" />
@@ -94,4 +95,8 @@
 
 
 		</div>
+<<<<<<< HEAD
 >>>>>>> 0a0c9028d7187472ae02a80a12b557c980ad18ec
+=======
+		</div>
+>>>>>>> cff2ddd3511d0ed12488d775ea84de75b95a9b02

@@ -10,7 +10,7 @@
 	</script>
 </head>
 <body>
-<div id="wrap">
+
 			<jsp:include page="top.jsp">
  			<jsp:param name="current" value="top"/>
  			</jsp:include>
@@ -19,6 +19,6 @@
  			</jsp:include>
  	비밀번호를 메일로 전송하였습니다. 	
  	<jsp:include page="footer.jsp"></jsp:include>
- 	</div>
+ 
 </body>
 </html>
