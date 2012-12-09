@@ -34,8 +34,6 @@
 		String name = request.getParameter("name");
 		String nickname = request.getParameter("nickname");
 		String facebook_id = request.getParameter("facebook_id");
-		String facebook_address = request.getParameter("facebook_address");
-		
 		List<String> errorMsg = new ArrayList<String>();
 		int result = 0;
 		if(name == null || password.trim().length() == 0){
@@ -52,24 +50,19 @@
 		if(facebook_id == null || facebook_id.trim().length() == 0){
 			errorMsg.add("페이스북 아이디를 반드시 입력해주세요.");
 		}
-		
-		if(facebook_address == null || facebook_address.trim().length() == 0){
-			errorMsg.add("페이스북 주소를 반드시 입력해주세요.");
-		}
 		if(errorMsg.size() == 0) {
 		try {
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
 					"UPDATE users " +
-					"SET  password=?, name=?, nickname=?, facebook_id=?, facebook_address=?" +
+					"SET  password=?, name=?, nickname=?, facebook_id=?" +
 					"WHERE id=?"
 					);
 			stmt.setString(1, password);
 			stmt.setString(2, name);
 			stmt.setString(3, nickname);
 			stmt.setString(4, facebook_id);
-			stmt.setString(5, facebook_address);
-			stmt.setString(6, id);
+			stmt.setString(5, id);
 			
 			result = stmt.executeUpdate();
 			if (result != 1) {

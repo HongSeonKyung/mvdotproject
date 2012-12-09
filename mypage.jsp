@@ -30,11 +30,10 @@
 		String name="";
 		String nickname="";
 		String facebook_id="";
-		String facebook_address="";
 				try{
 				Class.forName("com.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-				stmt = conn.prepareStatement("SELECT NAME, NICKNAME,FACEBOOK_ID, FACEBOOK_ADDRESS FROM USERS WHERE ID= ?");
+				stmt = conn.prepareStatement("SELECT NAME, NICKNAME,FACEBOOK_ID FROM USERS WHERE ID= ?");
 				stmt.setString(1, id);
 				rs = stmt.executeQuery();
 				if(rs.next()){
@@ -42,7 +41,6 @@
 					name=rs.getString("name");
 					nickname=rs.getString("nickname");
 					facebook_id=rs.getString("facebook_id");
-					facebook_address=rs.getString("facebook_address");
 				}
 			}
 			catch (SQLException e){
@@ -110,10 +108,6 @@
 	 		<tr>
 	 		<td> 페이스북 아이디 </td>
 	 		<td><%=facebook_id %></td>
-	 		</tr>
-	 		<tr>
-	 		<td> 페이스북 주소 </td>
-	 		<td><%=facebook_address%></td>
 	 		</tr>
  	</tbody>
  	</table>
