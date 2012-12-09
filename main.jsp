@@ -48,11 +48,11 @@
  		<jsp:param name="current" value="top"/>
  		</jsp:include>
 		  <div id="header" >
-			<form class="navbar-form pull-left">
+			
 				<jsp:include page="slideshow.jsp">
 		 		<jsp:param name="current" value="slide"/>
 		 		</jsp:include>
-			 </form>
+			
 		</div>
 		<div id="menuBar">
 			<jsp:include page="menubar.jsp">
