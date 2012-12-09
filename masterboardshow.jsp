@@ -28,7 +28,7 @@
 			review_id = request.getParameter("review_id"); //게시물 아이디만을 요청해서 가져온다.
 			id = (String)session.getAttribute("id"); //로그인된 아이디를 가져오기!!
 			//클릭한 게시글의 아이디로 제목, 내용, 날짜를 가져온다.
-			stmt = conn.prepareStatement("SELECT user_id, subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time, (SELECT nickname FROM users WHERE id=user_id) nickname FROM REVIEW_BOARD "
+			stmt = conn.prepareStatement("SELECT user_id, subject, content, DATE_FORMAT(writetime,'%Y-%m-%d %H:%i') time, (SELECT nickname FROM users WHERE id=user_id) nickname, movie_title, movie_pubdate, movie_director, actor, movie_story, movie_img FROM REVIEW_BOARD "
 							+ "WHERE review_id=?"); 
 			stmt.setInt(1, Integer.parseInt(review_id));//게시물 아이디를 설정한다.
 			rs = stmt.executeQuery();
@@ -42,17 +42,7 @@
 			
 		}
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>show review</title>
 <link href="write.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript">
-
-</script>
-</head>
-<body>
 <div id="wrap">
 	<jsp:include page="top.jsp">
 		<jsp:param name="current" value="top" />
@@ -60,20 +50,32 @@
 	<jsp:include page="menubar.jsp">
 		<jsp:param name="current" value="menubar" />
 	</jsp:include>
-	<div id="main_content">
+	<div id="main-content">
 		<%
 			while (rs.next()) {
 				user_id = rs.getString("user_id");	
-				out.print("<div id='submit'> 제목 : " + rs.getString("subject") + "</div>");
-				out.print("<div> 작성자 :"  + rs.getString("nickname") + "</div>");
+				out.print("<div id='text'> 제목 : " + rs.getString("subject") + "</div>");
+				out.print("<div id='text'>작성자 :"  + rs.getString("nickname") + "</div>");
 		%>
 		<div id="write_style">
-			<div class="image"></div>
-			<div class="information"></div>
+			<div class="image">
+			<% 
+				out.print("<img id='mov_img' src='" + rs.getString("movie_img") + "'/>");
+			%>
+			</div>
+			<div class="information">
+			<%
+			out.print("<div id='mov_title'>" + rs.getString("movie_title") + "</div>");
+			out.print("<div id='mov_tumbnail'>" + rs.getString("movie_pubdate") + "</div>");
+			out.print("<div id='mov_director'>" + rs.getString("movie_director") + "</div>");
+			out.print("<div id='mov_actor'>" + rs.getString("actor") + "</div>");
+			out.print("<div id='mov_story'>" + rs.getString("movie_story") + "</div>");
+			
+			%>
+			</div>
 		</div>
 		<%	
-					out.print("<div id='text'>" + rs.getString("content") + "</div>");
-					out.print("<div>" + rs.getString("time") + "</div>");
+					out.print("<div id='text'>" + "<span>" + rs.getString("content") + "</span>" + "<span>" + rs.getString("time") + "</span>" + "</div>");
 				}
 		%>
 	</div>
@@ -89,13 +91,24 @@
 					starString+="☆";
 				}
 				//댓글 출력 
-				out.print("<div>" + rs2.getString("nickname") + starString + ": " + rs2.getString("content") + "</div>");
-				out.print("<div>" + rs2.getString("time") + "</div>");
-				user_id = rs2.getString("user_id");
 				comment_id = rs2.getString("comment_id");
-		
+				out.print("<div class='reply-actions'>");
+				out.print("<span class='reply'>"+ "<b>" + rs2.getString("nickname") + "</b>" + "</span>"); 
+				out.print("<span class='reply'>" +starString + "</sapn>"); 
+				out.print("<span class='reply'>" + rs2.getString("content") + "</span>");
+				user_id = rs2.getString("user_id");
+				if(user_id.equals(id)){	%>
+				<form class='del-btn' action="deletereply.jsp" method="post">
+					<input type="hidden" name="comment_id" value='<%=comment_id%>'>			
+					<input type="hidden" name="review_id" value='<%=review_id%>'>			
+					</form>
+				<%
 				}
-			
+					out.print("<div class='time'>");
+					out.print("<span class='reply'>" + rs2.getString("time") + "</span>");
+				  out.print("</div>");
+					out.print("</div>");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -134,7 +147,7 @@
 	<div>
 
 	</div>
-	<div>
+<div class="btn btn-link">
 		<a href="master.jsp">목록으로</a>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
