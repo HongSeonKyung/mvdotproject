@@ -21,11 +21,13 @@
  			<jsp:include page="menubar.jsp">
  			<jsp:param name="current" value="menubar"/>
  			</jsp:include>
- 
+<br><hr>
  	<div id="mastermenubar">
  	<a href="masterboardlist.jsp"class="btn" type="button">게시글 관리</a>
  	<a href="masteruserlist.jsp" class="btn" type="button" >회원 관리</a>
  	 </div>
+ 	 <br><br><br>
+ 	 
  <jsp:include page="footer.jsp"></jsp:include>
  </div>
 </body>

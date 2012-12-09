@@ -43,7 +43,7 @@
 				type="button"><i class="icon-star"></i>회원가입 </a>
 			<%
 				} else {
-					if (id.equals("nanhee")) {
+					if (id.equals("master")) {
 			%>
 			<i class="icon-heart"></i>
 			<%
